@@ -1,0 +1,21 @@
+.card{
+    border: 1px;
+    border-radius: 5px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 10px 10px -6px rgb(35, 35, 35);
+}
+
+button{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 28px;
+    margin-right: 140px;
+    width: 240px;
+}
+
+
