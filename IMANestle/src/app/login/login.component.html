@@ -3,11 +3,11 @@
       <div>
         <h2 align="center">Iniciar sesión</h2>
       </div>
-      <form>
+      <form [formGroup]="loginForm" (ngSubmit)="onEnviar($event, usuario)">    
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Nombre de usuario</mat-label>
-            <input matInput formControlName="usuario" >
+            <input matInput class="form-control" formControlName="nombre" [(ngModel)]="usuario.nombre"/>
             <mat-hint>Usuario</mat-hint>
           </mat-form-field>
         </div>
@@ -24,6 +24,6 @@
       </form>
     </div>
     <div class="button">
-      <button class="boton" mat-raised-button color="primary">Primary</button>
+      <button [disabled]="loginForm.invalid" class="boton" type="submit" mat-raised-button color="primary">Primary</button>
     </div>
 </div>
