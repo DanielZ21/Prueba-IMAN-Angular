@@ -10,9 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 //COMPONENTES
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 //SERVICIOS
 import { AuthService } from 'src/servicios/auth.service';
+import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -20,7 +23,9 @@ import { AuthService } from 'src/servicios/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

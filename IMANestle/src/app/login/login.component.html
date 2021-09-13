@@ -13,10 +13,10 @@
         </div>
         <div>
           <mat-form-field appearance="legacy">
-            <mat-label>Contraseña</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" formControlName="contraseña"/>
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="contraseña">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             <mat-hint>Contraseña</mat-hint>
           </mat-form-field>
@@ -24,6 +24,6 @@
       </form>
     </div>
     <div class="button">
-      <button [disabled]="loginForm.invalid" class="boton" type="submit" mat-raised-button color="primary">Primary</button>
+      <button [disabled]="loginForm.invalid" class="boton" type="submit" mat-raised-button color="primary">Ingresar</button>
     </div>
 </div>

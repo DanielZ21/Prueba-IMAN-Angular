@@ -13,7 +13,7 @@ import { Usuario, UsuarioService } from 'src/servicios/usuario.service';
 })
 export class LoginComponent {
 
-  hide = false;
+  hide = true;
 
   usuario = new Usuario();
   [x: string]: any;
