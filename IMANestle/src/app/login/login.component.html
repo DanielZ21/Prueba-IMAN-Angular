@@ -13,7 +13,7 @@
         </div>
         <div>
           <mat-form-field appearance="legacy">
-            <mat-label>Enter your password</mat-label>
+            <mat-label>Ingrese su contraseña</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="contraseña">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
