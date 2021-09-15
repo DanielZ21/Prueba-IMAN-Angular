@@ -11,10 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeComponent } from './home/home.component';
+import { PorteriaComponent } from './porteria/porteria.component';
 
 //SERVICIOS
 import { AuthService } from 'src/servicios/auth.service';
-import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -25,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    SidebarComponent
+    SidebarComponent,
+    PorteriaComponent
   ],
   imports: [
     BrowserModule,

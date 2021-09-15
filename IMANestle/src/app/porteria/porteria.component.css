@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+}
+  
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+mat-form-field{
+    height: 5px;
+}
+
+button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 130px;
+}
+  
