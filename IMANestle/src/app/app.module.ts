@@ -16,6 +16,7 @@ import { PorteriaComponent } from './porteria/porteria.component';
 
 //SERVICIOS
 import { AuthService } from 'src/servicios/auth.service';
+import { PorteriaVillaNuevaComponent } from './porteria-villa-nueva/porteria-villa-nueva.component';
 
 
 
@@ -28,7 +29,8 @@ import { AuthService } from 'src/servicios/auth.service';
     LoginComponent,
     HomeComponent,
     SidebarComponent,
-    PorteriaComponent
+    PorteriaComponent,
+    PorteriaVillaNuevaComponent
   ],
   imports: [
     BrowserModule,
