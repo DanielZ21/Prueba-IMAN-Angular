@@ -1,64 +1,109 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/servicios/auth.service';
-import { observable } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Usuario, UsuarioService } from 'src/servicios/usuario.service';
+import { AuthService } from 'src/servicios/auth.service';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('init', [
+      state('void', style({
+        transform: 'translateX(-17%)',
+        opacity: 0
+      })),
+      transition(':enter',
+        [
+          animate(500, style({
+            transform: 'translateX(0)',
+            opacity: 1
+          }))
+        ])
+    ]),
+    trigger('flipState', [
+      state('active', style({
+        transform: 'rotateY(180deg)'
+      })),
+      state('inactive', style({
+        transform: 'rotateY(0)'
+      })),
+      transition('active => inactive', animate('500ms ease-out')),
+      transition('inactive => active', animate('500ms ease-in'))
+    ])
+  ]
 })
 export class LoginComponent {
-
-  hide = true;
-
-  usuario = new Usuario();
-  [x: string]: any;
-  //returnUrl: string;
   loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
-    
-    this.loginForm = this.formBuilder.group({
-        'nombre': ['', Validators.required],
-        'contraseña': ['', Validators.required]
+  forgotPasswordForm: FormGroup;
+
+  error: boolean = false;
+  flip: string = 'inactive';
+  isLogin: boolean = true;
+  cargando: boolean = false;
+  mensajeError: any ;
+
+  constructor(private fb: FormBuilder,
+              private authService: AuthService,
+              private router: Router) {
+
+    this.loginForm = this.fb.group({
+      'userName': ['', [Validators.required,Validators.minLength(6)]],
+      'password': ['', [Validators.required,Validators.minLength(6)]]
+    });
+
+    this.forgotPasswordForm = this.fb.group({
+      'email': ['', [Validators.required, Validators.email]]
     })
 
   }
-  get Contraseña() {
-    return this.loginForm.get("contraseña");
-  }
-  get Usuario() {
-    return this.loginForm.get("usuario");
-  }
-  get PasswordValid() {
-    return this.Contraseña?.touched && !this.Contraseña?.valid;
-  }
-  get UserValid() {
-    return this.Usuario?.touched && !this.Usuario?.valid;
+
+  login(): void {
+    if (this.loginForm.valid) {
+      this.error = false;
+      this.cargando = true;
+      console.log(this.loginForm.value);
+      this.authService.login(this.loginForm.value);
+      
+      /*         .subscribe(
+          (r) => {
+            this.cargando = false;
+            this.error = false;
+            console.log('Respuesta')
+            console.log(r);
+            this.router.navigateByUrl('/abm')
+          }, (e) => {
+            console.log('Error')
+            console.log(e)
+            this.cargando = false;
+            this.error = true;
+            this.mensajeError = e;
+          }
+        ); */
+    }  else {
+      this.error = true;
+      this.mensajeError = "¡Los campos no pueden estar vacíos!";
+    }
   }
 
-  /*
-  ngOnInit(): void {
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
-  }
-  */
+  forgotPassword() {
 
-  onEnviar(event: Event, usuario: Usuario): void {
-
-    event.preventDefault;
-    this.authService.login(this.usuario)
-      .subscribe(
-        data => {
-          console.log("DATA" + JSON.stringify(data));
-          this.router.navigate(['/home/movimientos']);
-        },
-        error => {
-          this.error = error;
-        }
-      );
   }
+
+
+
+  onSearchChange(value: string): void {
+    this.error = false;
+  }
+
+  toggleFlip() {
+    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+    this.isLogin = (this.flip == 'inactive');
+
+  }
+
+ 
 
 }
