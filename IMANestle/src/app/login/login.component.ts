@@ -92,8 +92,6 @@ export class LoginComponent {
 
   }
 
-
-
   onSearchChange(value: string): void {
     this.error = false;
   }
@@ -104,6 +102,5 @@ export class LoginComponent {
 
   }
 
- 
 
 }
