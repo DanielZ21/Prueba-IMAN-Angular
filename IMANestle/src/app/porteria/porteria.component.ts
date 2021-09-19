@@ -28,6 +28,7 @@ const ELEMENT_DATA1: TablaMaestra[] = [
   templateUrl: './porteria.component.html',
   styleUrls: ['./porteria.component.css']
 })
+
 export class PorteriaComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['fechaIngreso', 'origen', 'patente', 'carga'];
