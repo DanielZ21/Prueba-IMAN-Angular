@@ -1,4 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+ 
 
+:root {
+    --success    :#28a745;
+    --cancel     :#dc3545;
+    --edit       :#007bff;
+    --axNeumatico:#343a40;
+    --auMax      :#6c263e;
+}
+
+.btn-verde{
+    background-color: var(--success);
+    color: white;
+    border: var(--success);
+}
+
+.btn-rojo{
+    background-color: var(--cancel);
+    color: white;
+    border: var(--cancel);
+}
+
+.btn-azul{
+    background-color: var(--edit);
+    color: white;
+    border: var(--edit);
+}
+
+.btn-axNeumatico{
+    background-color: var(--axNeumatico);
+    color: white;
+    border: var(--axNeumatico);
+}
+
+.btn-auMax{
+    background-color: var(--auMax);
+    border: var(--auMax);
+    color: white;
+}
+
+.form-control:focus {
+    border-color: #6c263e;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #6c263e;
+}
+
+.btn:focus {
+    border-color: #6c263e;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #6c263e;
+}
+
+select {
+    padding: 5px !important;
+}
+
+.tr-totales {
+    font-style: italic;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.negrita {
+    font-weight: bold;
+}
+
+.color-rojo {
+    color: red;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+th,
+td {
+  text-align: center !important;
+}
+
+.bordes{
+    border-radius: 20px;
+}
+
+.counter{
+    font-size:25px;
+    font-weight:bold;
+    text-align:center;
+}
