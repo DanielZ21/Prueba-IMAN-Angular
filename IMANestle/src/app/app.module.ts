@@ -3,36 +3,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from 'src/modules/material/material.module';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //COMPONENTES
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { HomeComponent } from './home/home.component';
-import { PorteriaComponent } from './porteria/porteria.component';
-
-//SERVICIOS
-import { AuthService } from 'src/servicios/auth.service';
-import { PorteriaVillaNuevaComponent } from './porteria-villa-nueva/porteria-villa-nueva.component';
-import { IngresoegresoComponent } from './ingresoegreso/ingresoegreso.component';
-
-
-
+import { MaterialModule } from './shared/material/material.module';
+import { AuthService } from './_services/auth.service';
+import { AuthModule } from './modulos/auth/auth.module';
+import { PorteriaModule } from './modulos/porteria/porteria.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent,
-    SidebarComponent,
-    PorteriaComponent,
-    PorteriaVillaNuevaComponent,
-    IngresoegresoComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -42,6 +29,8 @@ import { IngresoegresoComponent } from './ingresoegreso/ingresoegreso.component'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AuthModule,
+    PorteriaModule
 
   ],
   providers: [

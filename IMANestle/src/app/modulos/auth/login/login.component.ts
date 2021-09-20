@@ -2,8 +2,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/servicios/auth.service';
-import Swal from 'sweetalert2'
+import { AuthService } from 'src/app/_services/auth.service';
+
+
 
 
 
