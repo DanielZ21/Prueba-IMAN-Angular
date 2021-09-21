@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/_services/auth.service';
 
 
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -39,6 +41,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   ]
 })
 export class LoginComponent {
+  [x: string]: any;
   loginForm: FormGroup;
   forgotPasswordForm: FormGroup;
 
@@ -63,6 +66,9 @@ export class LoginComponent {
 
   }
 
+  
+
+  /*
   login(): void {
     if (this.loginForm.valid) {
       this.error = false;
@@ -85,11 +91,56 @@ export class LoginComponent {
             this.mensajeError = e;
           }
         ); */
+  /*
     }  else {
       this.error = true;
       this.mensajeError = "¡Los campos no pueden estar vacíos!";
     }
   }
+  */
+
+  /*
+  
+  login(): void {
+    if (this.loginForm.invalid) {
+      this.error = true;
+      this.mensajeError = "¡Los campos no pueden estar vacíos!";
+    }
+    else {
+      this.error = false;
+      this.cargando = true;
+      this.authService.login(this.loginForm.value).subscribe((r: { error: any; msg: any; }) => {
+        this.cargando = false;
+        this.error = false;
+      
+      //(r);
+        if (r) {
+          if (r.error) {
+            this.error = true;
+            this.mensajeError = r.msg;
+          }
+
+          else
+          {
+            window.location.reload();
+          }
+        }
+      
+        else {
+          this.cargando = false;
+          this.error = true;
+          this.mensajeError = 'Se produjo un error.';
+        }
+      },
+        (      _error: any) => {
+        this.cargando = false;
+        this.error = true;
+        this.mensajeError = 'Se produjo un error.';
+      }
+      )
+    }
+  }
+  */
 
   forgotPassword() {
 
@@ -108,4 +159,8 @@ export class LoginComponent {
   
 }
 
+
+function subscribe(arg0: (r: { error: any; msg: any; }) => void, arg1: (_error: any) => void) {
+  throw new Error('Function not implemented.');
+}
 

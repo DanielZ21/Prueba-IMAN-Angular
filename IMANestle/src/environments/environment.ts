@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://apiurl"
+  apiUrl: "http://192.168.226.3:8085/",
+  authRoles: {
+    SUPER_ADMIN:['SuperAdmin'],
+    ADMIN:['SuperAdmin','Admin'],
+    USUARIO:['SuperAdmin','Admin','Usuario'],
+  }
 };
 
 /*

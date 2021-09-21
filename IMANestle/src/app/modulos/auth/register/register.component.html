@@ -1,0 +1,55 @@
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container register-container">
+        <div class="card register-card">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <div class="brand-wrapper">
+                            <img src="../../../assets/imagenes/logo.png" alt="logo" class="logo">
+                        </div>
+                        <!-- <p class="register-card-description">Sign into your account</p> -->
+                        <form [formGroup]="registerForm" (ngSubmit)="register()" ngNativeValidate>
+                            <div class="form-group">
+                                <label for="username" class="sr-only">Usuario</label>
+                                <input type="text" class="form-control" formControlName="username" placeholder="Usuario" required (input)="onSearchChange($any($event.target).value)">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="password" class="sr-only">Contraseña</label>
+                                <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" required (input)="onSearchChange($any($event.target).value)">
+                            </div>
+                            <div class="form-group mb-4 row">
+                                <label for="inicales" class="col-sm-4 col-form-label center-text">Iniciales</label>
+                                <div class="col-sm-8">
+                                    <select formControlName="iniciales" class="form-control">
+                                <option *ngFor="let iniciales of (listaIniciales | async)" >
+                                {{ iniciales }}
+                               </option>
+                              </select>
+                                </div>
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required"> -->
+                            <div id="alerta" class="alert alert-danger" *ngIf="this.enError">
+                                <strong>{{this.mensajeError}}</strong>
+                            </div>
+                            <div class="alert alert-success alert-dismissible show" role="alert" *ngIf="this.usuarioCreado">
+                                <strong>Usuario creado con Éxito!</strong>
+                                <button (click)="this.usuarioCreado = false" type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+
+                            <div class="form-group mb-2" *ngIf="cargando">
+                                <div class="d-flex justify-content-center">
+                                    <div class="spinner-border" id="spinner-register" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input name="register" id="register" class="btn btn-block register-btn mb-4" type="submit" value="Registrar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
