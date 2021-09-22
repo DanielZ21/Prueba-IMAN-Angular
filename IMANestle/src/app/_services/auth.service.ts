@@ -202,7 +202,7 @@ export class AuthService {
     return null;
   }
   
-  /*
+  
   rolePer(rolesNecesarios: string[]): boolean {
 
     var result = false;
@@ -217,7 +217,7 @@ export class AuthService {
     return result;
 
   }
-  */
+  
 
   
 }

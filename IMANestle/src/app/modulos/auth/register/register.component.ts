@@ -1,37 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { error } from 'protractor';
+//import { error } from 'protractor';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { RecursosService } from '@data/services/api/recursos.service';
+
 import { catchError } from 'rxjs/operators';
-import { AuthService } from '@data/services/api/auth.service';
+import { AuthService } from 'src/app/_services/auth.service';
+import { UsuarioService } from 'src/app/_services/usuario.service';
+
 
 @Component({
-  selector: 'register',
+  selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   registerForm : FormGroup
   enError: boolean = false;
   cargando: boolean= false;
   mensajeError: string ="" ;
   usuarioCreado: boolean = false;
 
-  public listaIniciales: Observable<Array<string>>;
+ 
 
-  constructor(private fb: FormBuilder, private authService:AuthService, private recursosService:RecursosService) {
+  constructor(private fb: FormBuilder, private authService:AuthService, private recursosService:UsuarioService) {
     this.registerForm = this.fb.group({
       'username':['', Validators.required],
-      'iniciales':['OTRO', Validators.required],
-      'password':['', Validators.required]
+      'password':['', Validators.required],
+      'nombre':['', Validators.required],
+      'rol':['', Validators.required],
+      'email':['', Validators.required]
     });
-    this.listaIniciales = this.getListaIniciales();
-   }
+  }
 
   ngOnInit(): void {
-  // console.log("En register")
   }
 
   register():void
@@ -67,21 +70,21 @@ export class RegisterComponent implements OnInit {
     return Observable.throw(error);
   }
 
-  getListaIniciales() {
-    return this.recursosService.getListaIniciales().pipe(map(response => Object.assign(new Array<string>(), response)))
-  }
-
+  
   resetForm()
   {
     this.registerForm = this.fb.group({
       'username':['', Validators.required],
-      'iniciales':['OTRO', Validators.required],
-      'password':['', Validators.required]
+      'password':['', Validators.required],
+      'nombre':['', Validators.required],
+      'rol':['', Validators.required],
+      'email':['', Validators.required]
     });
   }
 
   onSearchChange(value: string): void {  
     this.enError = false;
   }
+
 
 }

@@ -66,41 +66,11 @@ export class LoginComponent {
 
   }
 
-  
-
-  /*
-  login(): void {
-    if (this.loginForm.valid) {
-      this.error = false;
-      this.cargando = true;
-      console.log(this.loginForm.value);
-      this.authService.login(this.loginForm.value);
-      
-      /*         .subscribe(
-          (r) => {
-            this.cargando = false;
-            this.error = false;
-            console.log('Respuesta')
-            console.log(r);
-            this.router.navigateByUrl('/abm')
-          }, (e) => {
-            console.log('Error')
-            console.log(e)
-            this.cargando = false;
-            this.error = true;
-            this.mensajeError = e;
-          }
-        ); */
-  /*
-    }  else {
-      this.error = true;
-      this.mensajeError = "¡Los campos no pueden estar vacíos!";
-    }
+  login(value: any):void{
+    console.log(value);
   }
-  */
-
-  /*
   
+  /*
   login(): void {
     if (this.loginForm.invalid) {
       this.error = true;
@@ -109,36 +79,29 @@ export class LoginComponent {
     else {
       this.error = false;
       this.cargando = true;
-      this.authService.login(this.loginForm.value).subscribe((r: { error: any; msg: any; }) => {
+      this.authService.login(this.loginForm.value).subscribe((r: any) => {
         this.cargando = false;
         this.error = false;
-      
+        this.router.navigate(['/abm'])
       //(r);
         if (r) {
-          if (r.error) {
-            this.error = true;
-            this.mensajeError = r.msg;
-          }
-
-          else
-          {
-            window.location.reload();
-          }
+          window.location.reload();
         }
-      
         else {
           this.cargando = false;
           this.error = true;
           this.mensajeError = 'Se produjo un error.';
-        }
+        } 
       },
-        (      _error: any) => {
+        (error: any) => {
         this.cargando = false;
         this.error = true;
         this.mensajeError = 'Se produjo un error.';
+        console.log(error);
       }
       )
     }
+
   }
   */
 
@@ -160,7 +123,4 @@ export class LoginComponent {
 }
 
 
-function subscribe(arg0: (r: { error: any; msg: any; }) => void, arg1: (_error: any) => void) {
-  throw new Error('Function not implemented.');
-}
 

@@ -16,6 +16,7 @@ import { PorteriaModule } from './modulos/porteria/porteria.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
