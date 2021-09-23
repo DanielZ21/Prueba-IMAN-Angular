@@ -1,7 +1,15 @@
 table {
     width: 100%;
+   
 }
   
 th.mat-sort-header-sorted {
     color: black;
+}
+
+.tabla{
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 400px;
+    margin-top: 80px;
 }

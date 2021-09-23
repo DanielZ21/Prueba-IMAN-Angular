@@ -1,6 +1,10 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild,OnInit} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+
 
 export interface PeriodicElement {
   name: string;
@@ -47,7 +51,7 @@ const ELEMENT_DATA1: PeriodicElement1[] = [
   templateUrl: './ingresoegreso.component.html',
   styleUrls: ['./ingresoegreso.component.css']
 })
-export class IngresoegresoComponent implements AfterViewInit {
+export class IngresoegresoComponent implements AfterViewInit, OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   displayedColumns1: string[] = ['position', 'name', 'weight', 'symbol'];
@@ -61,6 +65,24 @@ export class IngresoegresoComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource1.sort = this.sort1;
+  }
+
+  myControl = new FormControl();
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredOptions!: Observable<string[]>;
+
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
 }
