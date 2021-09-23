@@ -11,8 +11,8 @@
         <mat-form-field appearance="legacy">
           <mat-label>Tipo artículo</mat-label>
           <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
+            <mat-option value="one">opción 1</mat-option>
+            <mat-option value="two">opción 2</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -81,7 +81,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tabla maestra de patentes</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -90,19 +90,19 @@
         
             <!-- Position Column -->
             <ng-container matColumnDef="position">
-              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <th mat-header-cell *matHeaderCellDef> Patente. </th>
               <td mat-cell *matCellDef="let element"> {{element.position}} </td>
             </ng-container>
         
             <!-- Name Column -->
             <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <th mat-header-cell *matHeaderCellDef> Tara </th>
               <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
         
             <!-- Weight Column -->
             <ng-container matColumnDef="weight">
-              <th mat-header-cell *matHeaderCellDef> Weight </th>
+              <th mat-header-cell *matHeaderCellDef> Acoplado </th>
               <td mat-cell *matCellDef="let element"> <mat-checkbox class="example-margin"></mat-checkbox> </td>
             </ng-container>
         
@@ -146,8 +146,7 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

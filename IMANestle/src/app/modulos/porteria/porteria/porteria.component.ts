@@ -66,12 +66,12 @@ export class PorteriaComponent implements AfterViewInit, OnInit {
 }
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
+  name: number;
+  position: string;
   weight: number;
 }
 
 const ELEMENT_DATA1: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079},
+  {position: 'AA213MR', name: 0.00, weight: 1.0079},
   
 ];
