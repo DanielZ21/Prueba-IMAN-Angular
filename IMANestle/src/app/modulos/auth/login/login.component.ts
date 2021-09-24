@@ -5,11 +5,6 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
 
 
-
-
-
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -56,8 +51,8 @@ export class LoginComponent {
               private router: Router) {
 
     this.loginForm = this.fb.group({
-      'userName': ['', [Validators.required,Validators.minLength(6)]],
-      'password': ['', [Validators.required,Validators.minLength(6)]]
+      'userName': ['', Validators.required],
+      'password': ['', Validators.required]
     });
 
     this.forgotPasswordForm = this.fb.group({
@@ -66,11 +61,9 @@ export class LoginComponent {
 
   }
 
-  login(value: any):void{
-    console.log(value);
-  }
   
-  /*
+  
+  
   login(): void {
     if (this.loginForm.invalid) {
       this.error = true;
@@ -79,7 +72,9 @@ export class LoginComponent {
     else {
       this.error = false;
       this.cargando = true;
-      this.authService.login(this.loginForm.value).subscribe((r: any) => {
+      this.authService.login(this.loginForm.value);
+      /*
+      .subscribe((r: any) => {
         this.cargando = false;
         this.error = false;
         this.router.navigate(['/abm'])
@@ -93,17 +88,18 @@ export class LoginComponent {
           this.mensajeError = 'Se produjo un error.';
         } 
       },
-        (error: any) => {
+      */
+      (error: any) => {
         this.cargando = false;
         this.error = true;
         this.mensajeError = 'Se produjo un error.';
         console.log(error);
       }
-      )
+    
     }
-
   }
-  */
+  
+  
 
   forgotPassword() {
 

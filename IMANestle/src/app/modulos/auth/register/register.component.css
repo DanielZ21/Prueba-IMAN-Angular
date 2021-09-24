@@ -1,14 +1,14 @@
 main {
     /* background: #d0d0ce; */
-    background: #6c263e;
+    background: #0d2366;
     /* Old browsers */
-    background: -moz-linear-gradient(-45deg, #6c263e 0%, #ffd8e8 100%);
+    background: -moz-linear-gradient(-45deg, #0d2366 0%, #ffd8e8 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #6c263e 0%, #ffd8e8 100%);
+    background: -webkit-linear-gradient(-45deg, #0d2366 0%, #ffd8e8 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, #6c263e 0%, #ffd8e8 100%);
+    background: linear-gradient(135deg, #0d2366 0%, #ffd8e8 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#6c263e', endColorstr='#ffd8e8', GradientType=1);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#0d2366', endColorstr='#ffd8e8', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
 }
 
@@ -17,7 +17,7 @@ main {
 }
 
 #register {
-    background-color: #6c263e;
+    background-color: #0d2366;
 }
 
 .register-container {
@@ -112,7 +112,7 @@ main {
 }
 
 #spinner-register {
-    color: #6c263e;
+    color: #262b6c;
 }
 
 .register-card .register-btn:hover {
