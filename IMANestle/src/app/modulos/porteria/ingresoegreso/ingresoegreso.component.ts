@@ -71,11 +71,21 @@ export class IngresoegresoComponent implements AfterViewInit, OnInit {
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions!: Observable<string[]>;
 
+  myControl1 = new FormControl();
+  options1: string[] = ['One', 'Two', 'Three'];
+  filteredOptions1!: Observable<string[]>;
+
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
+      );
+
+      this.filteredOptions1 = this.myControl1.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter1(value))
       );
   }
 
@@ -83,6 +93,12 @@ export class IngresoegresoComponent implements AfterViewInit, OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  private _filter1(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options1.filter(option => option.toLowerCase().includes(filterValue));
   }
 
 }

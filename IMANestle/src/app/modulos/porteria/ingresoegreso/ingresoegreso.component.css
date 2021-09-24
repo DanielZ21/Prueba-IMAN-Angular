@@ -7,9 +7,57 @@ th.mat-sort-header-sorted {
     color: black;
 }
 
+
 .tabla{
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 28px;
+    margin-right: 0px;
     width: 400px;
+    
+}
+
+.contenedor {
+    display: flex;
+    width: 100%;
+    
+}
+
+.boton{
+    margin-left: 40px;
+}
+
+
+.card{
+    display: flex;
+    width: 100%;
     margin-top: 80px;
+    margin-bottom: 80px;
+    margin-left: 10px;
+    margin-right: 1px;
+}
+
+button{
+    margin-bottom: 10px;
+    line-height: normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.container{
+    width: 100%;
+    margin-left: 5px;
+    display: flex;
+}
+
+.botones{
+    margin-left: 50px;
+    margin-right:  180px;
+    width: 100%;
+    margin-top: 477px;
+}
+
+.botones2{
+    margin-left: 50px;
+    margin-right:  180px;
+    width: 100%;
 }

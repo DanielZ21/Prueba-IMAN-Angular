@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-4">
       <div class="tabla">
         <div class="card">
           <div class="card-body">
-            <div>
+            <div class="contenedor">
               <form class="example-form">
                 <mat-form-field class="example-full-width" appearance="legacy">
-                  <mat-label>Number</mat-label>
+                  <mat-label>Filtrar</mat-label>
                   <input type="text"
-                         placeholder="Pick one"
+                         placeholder=""
                          aria-label="Number"
                          matInput
                          [formControl]="myControl"
@@ -21,6 +21,9 @@
                   </mat-autocomplete>
                 </mat-form-field>
               </form>
+              <div class="boton">
+                <button mat-raised-button color="primary">Nuevo</button>
+              </div>
             </div>
             <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
@@ -55,10 +58,54 @@
         </div>
       </div>
     </div>
-    <div class="col-md-5">
+    
+      <div class="col-md-2">
+        <div class="botones">
+          <div class="card">
+            <div class="card-body">
+              <div>
+                <button mat-raised-button color="primary">Ver <br> Modificar</button>
+              </div>
+              <div>
+                <button mat-raised-button color="primary">Eliminar</button>
+              </div>
+              <div>
+                <button mat-raised-button color="primary">Unificar</button>
+              </div>
+              <div>
+                <button mat-raised-button color="primary">Cerrar</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    
+   
+    <div class="col-md-4">
       <div class="tabla">
         <div class="card">
           <div class="card-body">
+            <div class="contenedor">
+              <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="legacy">
+                  <mat-label>Filtrar</mat-label>
+                  <input type="text"
+                         placeholder=""
+                         aria-label="Number"
+                         matInput
+                         [formControl]="myControl"
+                         [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </form>
+            </div>
+            
             <table mat-table [dataSource]="dataSource1" matSort class="mat-elevation-z8">
 
               <!-- Position Column -->
@@ -92,8 +139,35 @@
         </div>
       </div>
     </div>
+    <div class="col-md-2">
+      <div class="botones2">
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <button mat-raised-button color="primary"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Observaciones</button>
+            </div>
+            <div>
+              <button mat-raised-button color="primary">Registrar ingreso <br> de equipo</button>
+            </div>
+            <div>
+              <button mat-raised-button color="primary">Registrar ingreso <br> de químico</button>
+            </div>
+            <div>
+              <button mat-raised-button color="primary">Ver listado de <br> ingresos</button>
+            </div>
+            <div>
+              <button mat-raised-button color="primary">Informe</button>
+            </div>
+          </div>
+        </div>
+            
+      </div>
+     
+    </div>
+
   </div>
 </div>
+
 
 
 
