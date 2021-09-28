@@ -26,10 +26,12 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private authService:AuthService, private recursosService:UsuarioService) {
     this.registerForm = this.fb.group({
-      'username':['', Validators.required],
-      'password':['', Validators.required],
+      'userName':['', Validators.required],
+      'password':['', [Validators.required, Validators.minLength(6)]],
       'nombre':['', Validators.required],
-      'rol':['', Validators.required],
+      'idSucursal': [1],
+      'rol': ['Usuario'],
+      'habilitado': [1],
       'email':['', Validators.required]
     });
   }
@@ -74,10 +76,12 @@ export class RegisterComponent implements OnInit {
   resetForm()
   {
     this.registerForm = this.fb.group({
-      'username':['', Validators.required],
-      'password':['', Validators.required],
+      'userName':['', Validators.required],
+      'password':['', [Validators.required, Validators.minLength(6)]],
       'nombre':['', Validators.required],
-      'rol':['', Validators.required],
+      'idSucursal': [1],
+      'rol': ['Usuario'],
+      'habilitado': [1],
       'email':['', Validators.required]
     });
   }

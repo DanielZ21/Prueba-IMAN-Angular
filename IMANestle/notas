@@ -38,3 +38,13 @@
 
 Los roles son "USUARIO", "ADMIN" y "SUPERADMIN".
 
+Usuariodeprueba
+{
+  "userName": "usuario1",
+  "password": "a12345678Z",
+  "nombre": "nombre",
+  "idSucursal": 1,
+  "rol": "Usuario",
+  "habilitado": 1,
+  "email": "e@gmail.com"
+}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs'
-import { Registro } from '../models/apí/registro';
+import { Observable } from 'rxjs'; 
+
 import { API_ROUTES } from 'src/data/route/api.routes';
 
 @Injectable({
