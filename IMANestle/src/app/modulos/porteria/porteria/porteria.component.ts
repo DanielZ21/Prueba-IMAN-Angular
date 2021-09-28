@@ -5,6 +5,9 @@ import {MatPaginator} from '@angular/material/paginator';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { Ingreso } from 'src/app/models/IngresoFabricaTB';
+import { IngresoService } from 'src/app/_services/ingreso.service';
+import { Router } from '@angular/router';
 
 export interface Porteria {
   fechaIngreso: string;
@@ -30,13 +33,41 @@ const ELEMENT_DATA: Porteria[] = [
 
 export class PorteriaComponent implements AfterViewInit, OnInit {
 
+
+  public ingresos: Ingreso[] | undefined;
+  dataSource!: MatTableDataSource<Ingreso>;
   displayedColumns: string[] = ['fechaIngreso', 'origen', 'patente', 'carga'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  cargando: boolean = false;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private ingresoService: IngresoService, private router: Router){
+    this.getIngresos();
+  }
+
+  getIngresos():void{
+    //this.dataSource=null;
+
+    this.cargando = true;
+    this.ingresoService.getIngresos().subscribe(r => {
+      console.log(r);
+      this.dataSource = new MatTableDataSource(r);
+      this.configTable();
+      //var ultimoRecurso: string = (this.totalesHorasTodos != null) ? this.totalesHorasTodos[0].recurso : "";
+      this.cargando = false;
+    }, e => {
+      this.cargando = false;
+    })
+
+  }
+
+  configTable() {
+    this.dataSource.sort = this.sort!;
+  }  
 
   displayedColumns1: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource1 = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA1);
 
-  @ViewChild(MatSort) sort!: MatSort;
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
  
 

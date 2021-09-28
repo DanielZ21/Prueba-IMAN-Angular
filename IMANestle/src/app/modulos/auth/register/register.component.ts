@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
       'userName':['', Validators.required],
       'password':['', [Validators.required, Validators.minLength(6)]],
       'nombre':['', Validators.required],
-      'idSucursal': [1],
+      'idSucursal': [1],  //idSucursal, rol y habilitado quedan predefinidos.
       'rol': ['Usuario'],
       'habilitado': [1],
       'email':['', Validators.required]
