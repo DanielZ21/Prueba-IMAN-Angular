@@ -21,7 +21,7 @@ export interface NuevoIngreso {
 }
 
 export interface IngresoFabricaTB {
-    group: any;
+    group:               any;
     id:                  number;
     ingreso:             Date;
     salida:              Date;

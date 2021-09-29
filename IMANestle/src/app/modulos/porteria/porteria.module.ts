@@ -5,7 +5,7 @@ import { PorteriaRoutingModule } from './porteria-routing.module';
 import { IngresoegresoComponent } from './ingresoegreso/ingresoegreso.component';
 import { PorteriaComponent } from './porteria/porteria.component';
 import { PorteriaVillaNuevaComponent } from './porteria-villa-nueva/porteria-villa-nueva.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 
 
@@ -19,7 +19,8 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
     CommonModule,
     PorteriaRoutingModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   exports: [
     IngresoegresoComponent,
