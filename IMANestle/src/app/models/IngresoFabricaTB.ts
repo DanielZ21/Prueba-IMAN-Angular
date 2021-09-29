@@ -7,20 +7,21 @@ export interface Ingreso {
 
 export interface NuevoIngreso {
     ingresoFabricaTB:      IngresoFabricaTB;
-    listaTransportistas:   ListaTransportista[];
-    listaTipoArticulos:    ListaTipoArticulo[];
-    listaAtas:             ListaATA[];
-    listaClientes:         ListaCliente[];
-    listaDestinos:         ListaDestino[];
-    listaRemitos:          ListaRemito[];
-    listaNacionalidades:   ListaNacionalidade[];
+    listaTransportistas:   ListaTransportistas[];
+    listaTipoArticulos:    ListaTipoArticulos[];
+    listaAtas:             ListaATAs[];
+    listaClientes:         ListaClientes[];
+    listaDestinos:         ListaDestinos[];
+    listaRemitos:          ListaRemitos[];
+    listaNacionalidades:   ListaNacionalidades[];
     listaPatentesChasis:   ListaPatentes[];
     listaPatentesAcoplado: ListaPatentes[];
-    listaChoferes:         ListaChofere[];
-    listaExportadores:     ListaExportadore[];
+    listaChoferes:         ListaChoferes[];
+    listaExportadores:     ListaExportadores[];
 }
 
 export interface IngresoFabricaTB {
+    group: any;
     id:                  number;
     ingreso:             Date;
     salida:              Date;
@@ -45,34 +46,34 @@ export interface IngresoFabricaTB {
     nroPermisoEmbarque:  string;
 }
 
-export interface ListaATA {
+export interface ListaATAs {
     id:   number;
     ata:  string;
     cuit: string;
 }
 
-export interface ListaChofere {
+export interface ListaChoferes {
     id:     number;
     chofer: string;
 }
 
-export interface ListaCliente {
+export interface ListaClientes {
     id:      number;
     cliente: string;
 }
 
-export interface ListaDestino {
+export interface ListaDestinos {
     id:         number;
     destino:    string;
     codigoAfip: number;
 }
 
-export interface ListaExportadore {
+export interface ListaExportadores {
     id:         number;
     exportador: string;
 }
 
-export interface ListaNacionalidade {
+export interface ListaNacionalidades {
     id:           number;
     nacionalidad: string;
 }
@@ -83,7 +84,7 @@ export interface ListaPatentes {
     patenteChasis: number;
 }
 
-export interface ListaRemito {
+export interface ListaRemitos {
     id:               number;
     nroRemito:        string;
     fecha:            Date;
@@ -95,12 +96,12 @@ export interface ListaRemito {
     idRemitoNew:      number;
 }
 
-export interface ListaTipoArticulo {
+export interface ListaTipoArticulos {
     id:           number;
     tipoArticulo: string;
 }
 
-export interface ListaTransportista {
+export interface ListaTransportistas {
     id:            number;
     transportista: string;
 }

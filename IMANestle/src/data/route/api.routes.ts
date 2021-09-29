@@ -12,7 +12,7 @@ export const API_ROUTES= {
 
     INGRESO_FABRICA_TB:{
         GET_INGRESOS: `${ENV.apiUrl}Negocio/IngresoFabricaTB/GetIngresos`,
-        GET_NUEVO_INGRESO_FABRICA: `${ENV.apiUrl}Negocio​/IngresoFabricaTB​/NuevoIngresoFabrica`,
+        GET_NUEVO_INGRESO_FABRICA: `${ENV.apiUrl}Negocio/IngresoFabricaTB/NuevoIngresoFabrica`,
         POST_INGRESO_FABRICA: `${ENV.apiUrl}Negocio​/IngresoFabricaTB​/PostIngresoFabrica`,
     },
 

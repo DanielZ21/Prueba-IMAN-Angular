@@ -11,8 +11,10 @@
                 <mat-form-field appearance="legacy">
                   <mat-label>Tipo artículo</mat-label>
                   <mat-select>
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
+                    <mat-option value="one">-------------</mat-option>
+                    <mat-option *ngFor="let tipoArticulo of listaTipoArticulos" [value]="tipoArticulo.id">
+                      {{tipoArticulo.id}}
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
             </div>
@@ -177,8 +179,6 @@
                   <input matInput />
                 </mat-form-field>
             </div>
-
-
         </div>
     </div>
 </div>
