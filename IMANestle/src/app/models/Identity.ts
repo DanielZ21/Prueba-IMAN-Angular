@@ -7,3 +7,8 @@ export interface Registro {
     habilitado: number;
     email:      string;
 }
+
+export interface Login {
+    userName: string;
+    password: string;
+}

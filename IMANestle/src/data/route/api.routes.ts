@@ -14,6 +14,15 @@ export const API_ROUTES= {
         GET_INGRESOS: `${ENV.apiUrl}Negocio/IngresoFabricaTB/GetIngresos`,
         GET_NUEVO_INGRESO_FABRICA: `${ENV.apiUrl}Negocio/IngresoFabricaTB/NuevoIngresoFabrica`,
         POST_INGRESO_FABRICA: `${ENV.apiUrl}Negocio​/IngresoFabricaTB​/PostIngresoFabrica`,
+        GET_PESO_ACTUAL: `${ENV.apiUrl}Negocio​/IngresoFabricaTB​/GetPesoActual`,
+    },
+
+    /* ---------- APIS MADCAP ------------ */
+
+    MADCAP: {
+        GET_PRUEBA: `${ENV.apiUrl}Negocio/MadCap/prueba`,
+        POST_LOGIN: `${ENV.apiUrl}Negocio/MadCap/login`,
+        POST_ENVIAR_PESO: `${ENV.apiUrl}Negocio/MadCap/enviarPeso`,
     },
 
     /* ---------- APIS TRANSPORTISTAS ------------ */
