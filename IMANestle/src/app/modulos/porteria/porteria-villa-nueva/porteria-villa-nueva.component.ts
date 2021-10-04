@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { ListaATAs, ListaChoferes, ListaClientes, ListaDestinos, ListaExportadores, ListaNacionalidades, ListaPatentes, ListaRemitos, ListaTipoArticulos, ListaTransportistas, NuevoIngreso } from 'src/app/models/IngresoFabricaTB';
+import { ListaATAs, ListaChoferes, ListaClientes, ListaDestinos, ListaExportadores, ListaNacionalidades, ListaPatentes, ListaRemitos, ListaTipoArticulos, ListaTransportistas } from 'src/app/models/IngresoFabricaTB';
 import { IngresoService } from 'src/app/_services/ingreso.service';
 
   
@@ -28,6 +28,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class PorteriaVillaNuevaComponent implements AfterViewInit {
 
+  
   transportistas:   ListaTransportistas[]=[];
   tipoArticulos:    ListaTipoArticulos[]=[];
   atas:             ListaATAs[]=[];
@@ -39,6 +40,9 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
   patentesAcoplado: ListaPatentes[]=[];
   choferes:         ListaChoferes[]=[];
   exportadores:     ListaExportadores[]=[];
+  
+
+  
 
   registerForm: FormGroup = this.fb.group({
     id: [0],
@@ -75,15 +79,15 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
       });
       */
 
-      this.ingresoService.getNuevoIngreso().subscribe((r:ListaTipoArticulos[])=> {
-        console.log(r);
+      this.ingresoService.getNuevoIngreso()
+      .subscribe((r: ListaTipoArticulos[])=> {
+        //console.log(r);
         this.tipoArticulos = r;
+        console.log(this.tipoArticulos);
       });
 
-      this.ingresoService.getNuevoIngreso().subscribe((r:ListaChoferes[])=> {
-        console.log(r);
-        this.choferes = r;
-      });
+     
+      
 
       /*
       this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaATAs[])=> {

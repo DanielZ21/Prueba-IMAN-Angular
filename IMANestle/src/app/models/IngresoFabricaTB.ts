@@ -6,6 +6,7 @@ export interface Ingreso {
 }
 
 export interface NuevoIngreso {
+    
     ingresoFabricaTB:      IngresoFabricaTB;
     listaTransportistas:   ListaTransportistas[];
     listaTipoArticulos:    ListaTipoArticulos[];

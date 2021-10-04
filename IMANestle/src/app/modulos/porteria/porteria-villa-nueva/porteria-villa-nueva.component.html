@@ -29,8 +29,8 @@
           <mat-form-field appearance="legacy">
             <mat-label>Origen/destino</mat-label>
             <mat-select formControlName="idDestino">
-              <mat-option *ngFor="let destino of destinos" [value]="destino.id">
-                {{destino.destino}}
+              <mat-option>
+                
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -112,9 +112,8 @@
           <mat-form-field appearance="legacy">
             <mat-label>Chofer</mat-label>
             <mat-select formControlName="chofer">
-              <mat-option *ngFor="let chofer of choferes | keyvalue" value="chofer.id">
-                 {{chofer.key}}
-                 {{chofer.value}}
+              <mat-option>
+                 
               </mat-option>
               
             </mat-select>
