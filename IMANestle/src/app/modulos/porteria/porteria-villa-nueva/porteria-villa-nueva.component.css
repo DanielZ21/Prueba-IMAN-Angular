@@ -18,3 +18,12 @@ th.mat-sort-header-sorted {
 .col{
     margin-right: 10px;
 }
+
+#lectorBalanza{
+    background-color: black;
+    
+}
+
+#peso{
+    color: rgb(255, 0, 0);
+}

@@ -2,10 +2,11 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { ListaATAs, ListaChoferes, ListaClientes, ListaDestinos, ListaExportadores, ListaNacionalidades, ListaPatentes, ListaRemitos, ListaTipoArticulos, ListaTransportistas } from 'src/app/models/IngresoFabricaTB';
+import { IngresoFabricaTB, ListaATA, ListaChofere, ListaCliente, ListaDestino, ListaExportadore, ListaNacionalidade, ListaPatentes, ListaRemito, ListaTipoArticulo, ListaTransportista, PesoActual } from 'src/app/models/IngresoFabricaTB';
 import { IngresoService } from 'src/app/_services/ingreso.service';
+import Swal from 'sweetalert2';
 
-  
+
   
 
 export interface PeriodicElement {
@@ -29,26 +30,30 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class PorteriaVillaNuevaComponent implements AfterViewInit {
 
   
-  transportistas:   ListaTransportistas[]=[];
-  tipoArticulos:    ListaTipoArticulos[]=[];
-  atas:             ListaATAs[]=[];
-  clientes:         ListaClientes[]=[];
-  destinos:         ListaDestinos[]=[];
-  remitos:          ListaRemitos[]=[];
-  nacionalidades:   ListaNacionalidades[]=[];
-  patentesChasis:   ListaPatentes[]=[];
-  patentesAcoplado: ListaPatentes[]=[];
-  choferes:         ListaChoferes[]=[];
-  exportadores:     ListaExportadores[]=[];
   
-
+    ingresoFabricaTB!:IngresoFabricaTB;
+    listaTransportistas!: ListaTransportista[];
+    listaTipoArticulos!: ListaTipoArticulo[];
+    listaAtas!: ListaATA[];
+    listaDestinos!: ListaDestino[];
+    listaRemitos!: ListaRemito[];
+    listaNacionalidades!: ListaNacionalidade[];
+    listaPatentesChasis!: ListaPatentes[];
+    listaPatentesAcoplado!: ListaPatentes[];
+    listaChoferes!: ListaChofere[];
+    listaExportadores!: ListaExportadore[];
+  
+    peso!: PesoActual;
+  
+  
+  
   
 
   registerForm: FormGroup = this.fb.group({
     id: [0],
     ingreso: [1,[Validators.required]],
     salida: [1,[Validators.required]],
-    idTipoArticulo: ['',[Validators.required]],
+    tipoArticuloId: ['',[Validators.required]],
     patente1: [,[Validators.required]],
     patente2: [,[Validators.required]],
     ing: [,[Validators.required]],
@@ -72,24 +77,27 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
 
   
   constructor(private fb: FormBuilder, private ingresoService: IngresoService){
+
+      this.getTransportistas();
+      this.getTipoArticulos();
+      this.getPesoActual();
       /*
       this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaTransportistas[])=> {
         console.log(r);
         this.transportistas = r;
       });
-      */
-
-      this.ingresoService.getNuevoIngreso()
-      .subscribe((r: ListaTipoArticulos[])=> {
-        //console.log(r);
-        this.tipoArticulos = r;
-        console.log(this.tipoArticulos);
-      });
-
-     
       
 
-      /*
+      
+
+      this.ingresoService.getNuevoIngreso()
+      .subscribe((r: ListaTipoArticulo[])=> {
+        //console.log(r);
+        this.listaTipoArticulos = r;
+        console.log(this.listaTipoArticulos.forEach.arguments);
+      });
+
+    
       this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaATAs[])=> {
         console.log(r);
         this.atas = r;
@@ -127,14 +135,76 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
         this.exportadores = r;
       });
       */
-
   }
 
  
   register(){
+    const Toast = Swal.mixin({
+      //Declaro el mixin de sweet alert 2
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
     
+    console.log('registrar');
+
+    if(this.registerForm.valid){
+      this.ingresoService.postIngreso(this.registerForm.value)
+      .subscribe(
+        (data) => {
+          Toast.fire({
+            icon: 'success',
+            title: 'Ingreso registrado con éxito',
+          });
+          this.registerForm.reset();
+        },
+        (error) => {
+          console.log(error);
+          Toast.fire({
+              icon: 'error',
+              title: `Error de servidor`,
+          });
+        }
+      );
+
+    } else {
+      console.log('Registro inválido');
+        Toast.fire({
+          icon: 'error',
+          title: 'Error: Verifique los campos ingresados',
+        });
+        this.registerForm.reset();
+    }
+  }
+
+  getTransportistas(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r);
+      this.listaTransportistas = r.listaTransportistas
+    });
   }
  
+  getTipoArticulos(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r);
+      this.listaTipoArticulos = r.listaTipoArticulos
+    });
+  }
+
+  
+  getPesoActual(){
+    this.ingresoService.getPesoActual(1).subscribe(r => {
+      console.log('Peso',r);
+      this.peso = r.peso
+    })
+  }
+  
 
  
 

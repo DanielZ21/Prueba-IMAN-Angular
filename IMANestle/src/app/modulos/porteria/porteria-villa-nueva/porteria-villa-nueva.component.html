@@ -1,3 +1,9 @@
+<div class="card" id=lectorBalanza>
+  <div class="card-body" id=lectorBalanza>
+    <h1 id=peso >{{peso}}</h1>
+  </div>
+</div>
+
 <div class="container">
   <div [formGroup]="registerForm">
     <div class="row">
@@ -11,10 +17,9 @@
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Tipo artículo</mat-label>
-            <mat-select formControlName="idTipoArticulo">
-              <mat-option *ngFor= "let tipoArticulo of tipoArticulos | keyvalue">
-                 {{tipoArticulo.key}}
-                 {{tipoArticulo.value}}
+            <mat-select formControlName="tipoArticuloId">
+              <mat-option *ngFor= "let i of listaTipoArticulos" value="i.tipoArticuloId">
+                 {{i.tipoArticulo}}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -112,8 +117,8 @@
           <mat-form-field appearance="legacy">
             <mat-label>Chofer</mat-label>
             <mat-select formControlName="chofer">
-              <mat-option>
-                 
+              <mat-option *ngFor= "let i of listaTransportistas" value="i.chofer">
+                 {{i.transportista}}
               </mat-option>
               
             </mat-select>
