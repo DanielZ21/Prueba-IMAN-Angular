@@ -34,8 +34,8 @@
           <mat-form-field appearance="legacy">
             <mat-label>Origen/destino</mat-label>
             <mat-select formControlName="idDestino">
-              <mat-option>
-                
+              <mat-option *ngFor= "let i of listaDestinos" value="i.idDestino">
+                {{i.destino}}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -117,8 +117,8 @@
           <mat-form-field appearance="legacy">
             <mat-label>Chofer</mat-label>
             <mat-select formControlName="chofer">
-              <mat-option *ngFor= "let i of listaTransportistas" value="i.chofer">
-                 {{i.transportista}}
+              <mat-option *ngFor= "let i of listaChoferes" value="i.chofer">
+                 {{i.chofer}}
               </mat-option>
               
             </mat-select>
@@ -127,9 +127,10 @@
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Patente Acoplado</mat-label>
-            <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+            <mat-select formControlName="patente2">
+              <mat-option *ngFor= "let i of listaPatentesAcoplado" value="i.patente2">
+                 {{i.patente}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -175,8 +176,10 @@
           <mat-form-field appearance="legacy">
             <mat-label>ATA</mat-label>
             <mat-select formControlName="idATA">
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+              <mat-option *ngFor= "let i of listaAtas" value="i.idATA">
+                {{i.ata}}
+              </mat-option>
+              
             </mat-select>
           </mat-form-field>
         </div>

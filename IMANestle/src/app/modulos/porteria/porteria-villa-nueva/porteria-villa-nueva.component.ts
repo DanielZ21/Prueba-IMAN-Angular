@@ -73,6 +73,8 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
     nroPermisoEmbarque: [,[Validators.required]],
   });
 
+
+
   
 
   
@@ -80,61 +82,15 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
 
       this.getTransportistas();
       this.getTipoArticulos();
-      this.getPesoActual();
-      /*
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaTransportistas[])=> {
-        console.log(r);
-        this.transportistas = r;
-      });
+      this.getAtas();
+      this.getDestinos();
+      this.getRemitos();
+      this.getNacionalidades();
+      this.getPatentesChasis();
+      this.getPatentesAcoplado();
+      this.getChoferes();
+      this.getExportadores();
       
-
-      
-
-      this.ingresoService.getNuevoIngreso()
-      .subscribe((r: ListaTipoArticulo[])=> {
-        //console.log(r);
-        this.listaTipoArticulos = r;
-        console.log(this.listaTipoArticulos.forEach.arguments);
-      });
-
-    
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaATAs[])=> {
-        console.log(r);
-        this.atas = r;
-      });
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaClientes[])=> {
-        console.log(r);
-        this.clientes = r;
-      });
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaDestinos[])=> {
-        console.log(r);
-        this.destinos= r;
-      });
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaRemitos[])=> {
-        console.log(r);
-        this.remitos = r;
-      });
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaNacionalidades[])=> {
-        console.log(r);
-        this.nacionalidades = r;
-      });
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaPatentes[])=> {
-        console.log(r);
-        this.patentesChasis = r;
-      });
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaPatentes[])=> {
-        console.log(r);
-        this.patentesAcoplado = r;
-      });
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaChoferes[])=> {
-        console.log(r);
-        this.choferes = r;
-      });
-      this.ingresoService.getNuevoIngreso(r).subscribe((r:ListaExportadores[])=> {
-        console.log(r);
-        this.exportadores = r;
-      });
-      */
   }
 
  
@@ -183,19 +139,80 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
     }
   }
 
+  /*-------Listas para los selects-------*/
+
   getTransportistas(){
     this.ingresoService.getNuevoIngreso().subscribe(r => {
-      console.log(r);
+      console.log(r.listaTransportistas);
       this.listaTransportistas = r.listaTransportistas
     });
   }
  
   getTipoArticulos(){
     this.ingresoService.getNuevoIngreso().subscribe(r => {
-      console.log(r);
+      console.log(r.listaTipoArticulos);
       this.listaTipoArticulos = r.listaTipoArticulos
     });
   }
+
+  getAtas(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r.listaAtas);
+      this.listaAtas= r.listaAtas
+    });
+  }
+
+  getDestinos(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r.listaDestinos);
+      this.listaDestinos= r.listaDestinos
+    });
+  }
+
+  getRemitos(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r.listaRemitos);
+      this.listaRemitos= r.listaRemitos
+    });
+  }
+
+  getNacionalidades(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r.listaNacionalidades);
+      this.listaNacionalidades= r.listaNacionalidades
+    });
+  }
+
+  getPatentesChasis(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r.listaPatentesChasis);
+      this.listaPatentesChasis= r.listaPatentesChasis
+    });
+  }
+
+  getPatentesAcoplado(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r.listaPatentesAcoplado);
+      this.listaPatentesAcoplado= r.listaPatentesAcoplado
+    });
+  }
+
+  getChoferes(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r.listaChoferes);
+      this.listaChoferes= r.listaChoferes
+    });
+  }
+
+  getExportadores(){
+    this.ingresoService.getNuevoIngreso().subscribe(r => {
+      console.log(r.listaExportadores);
+      this.listaExportadores= r.listaExportadores
+    });
+  }
+  
+
+ 
 
   
   getPesoActual(){
