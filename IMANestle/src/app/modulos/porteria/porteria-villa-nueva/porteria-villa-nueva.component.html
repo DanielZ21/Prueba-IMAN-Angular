@@ -8,12 +8,27 @@
   <div [formGroup]="registerForm">
     <div class="row">
       <div class="col">
+
+        <!--Ingreso-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Ingreso</mat-label>
             <input matInput formControlName="ingreso" />
           </mat-form-field>
         </div>
+
+        <!--Salida-->
+
+        <div>
+          <mat-form-field appearance="legacy">
+            <mat-label>Salida</mat-label>
+            <input matInput formControlName="salida" />
+          </mat-form-field>
+        </div>
+
+        <!--Tipo artículos-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Tipo artículo</mat-label>
@@ -24,6 +39,9 @@
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!--Transportistas-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Transportista</mat-label>
@@ -34,16 +52,44 @@
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!--Patente chasis-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Patente Chasis</mat-label>
             <mat-select formControlName="patente1">
               <mat-option *ngFor= "let i of listaPatentesChasis" value="i.patente1">
-                 {{i.patenteChasis}}
+                 {{i.patente}}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!--Patente acoplado-->
+
+        <div>
+          <mat-form-field appearance="legacy">
+            <mat-label>Patente Acoplado</mat-label>
+            <mat-select formControlName="patente2">
+              <mat-option *ngFor= "let i of listaPatentesAcoplado" value="i.patente2">
+                 {{i.patente}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!--Bruto-->
+
+        <div>
+          <mat-form-field appearance="legacy">
+            <mat-label>Bruto</mat-label>
+            <input matInput formControlName="bruto" />
+          </mat-form-field>
+        </div>
+
+        <!--Origen destino-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Origen/destino</mat-label>
@@ -54,26 +100,31 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div>
-          <mat-form-field appearance="legacy">
-            <mat-label>Bruto</mat-label>
-            <input matInput formControlName="bruto" />
-          </mat-form-field>
-        </div>
+
       </div>
       <div class="col">
+
+
+        <!--Tara contenedor-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Tara contenedor</mat-label>
             <input matInput formControlName="tara"/>
           </mat-form-field>
         </div>
+
+        <!--DNI chofer-->
+        
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>DNI chofer</mat-label>
             <input matInput formControlName="dni"/>
           </mat-form-field>
         </div>
+
+        <!--Observaciones-->
+
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Observaciones</mat-label>
@@ -81,7 +132,11 @@
           </mat-form-field>
         </div>
       </div>
+
       <div class="col">
+
+        <!--Nacionalidad de chofer-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Nac. Chofer</mat-label>
@@ -92,6 +147,9 @@
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!--Exportador-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Exportador</mat-label>
@@ -102,6 +160,9 @@
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!--Destino-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Destino</mat-label>
@@ -112,20 +173,22 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div>
-          <mat-form-field appearance="legacy">
-            <mat-label>Salida</mat-label>
-            <input matInput formControlName="salida" />
-          </mat-form-field>
-        </div>
+       
+        <!--Remito-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Remito</mat-label>
             <input matInput formControlName="idRemito" />
           </mat-form-field>
         </div>
+
       </div>
       <div class="col">
+
+
+        <!--Chofer-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Chofer</mat-label>
@@ -137,17 +200,9 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div>
-          <mat-form-field appearance="legacy">
-            <mat-label>Patente Acoplado</mat-label>
-            <mat-select formControlName="patente2">
-              <mat-option *ngFor= "let i of listaPatentesAcoplado" value="i.patente2">
-                 {{i.patente}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div>
+        
+        <!--
+          <div>
           <mat-form-field appearance="legacy">
             <mat-label>Entrada-Salida</mat-label>
             <mat-select formControlName="entrada">
@@ -156,26 +211,43 @@
             </mat-select>
           </mat-form-field>
         </div>
+        -->   
       </div>
       <div class="col">
-        <div>
-          <mat-form-field appearance="legacy">
-            <mat-label>Tara</mat-label>
-            <input matInput formControlName="tara" />
-          </mat-form-field>
-        </div>
+        
+        <!--Tara salida-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Tara de salida</mat-label>
             <input matInput formControlName="taraSalida" />
           </mat-form-field>
         </div>
+
+        <!--Nro contenedor-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Nro. contenedor</mat-label>
             <input matInput formControlName="nroContenedor" />
           </mat-form-field>
         </div>
+
+        <!--ATAS-->
+
+        <div>
+          <mat-form-field appearance="legacy">
+            <mat-label>ATA</mat-label>
+            <mat-select formControlName="idATA">
+              <mat-option *ngFor= "let i of listaAtas" value="i.idATA">
+                {{i.ata}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!--CUIT Exportador-->
+
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>CUIT Exportador</mat-label>
@@ -186,17 +258,9 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div>
-          <mat-form-field appearance="legacy">
-            <mat-label>ATA</mat-label>
-            <mat-select formControlName="idATA">
-              <mat-option *ngFor= "let i of listaAtas" value="i.idATA">
-                {{i.ata}}
-              </mat-option>
-              
-            </mat-select>
-          </mat-form-field>
-        </div>
+
+        <!--Permiso embarque-->
+        
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Permiso embarque</mat-label>
