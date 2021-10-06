@@ -1,6 +1,6 @@
 <div class="card" id=lectorBalanza>
   <div class="card-body" id=lectorBalanza>
-    <h1 id=peso >{{peso}}</h1>
+    {{peso.peso}}
   </div>
 </div>
 
@@ -26,8 +26,22 @@
         </div>
         <div>
           <mat-form-field appearance="legacy">
-            <mat-label>Patente chasis</mat-label>
-            <input matInput />
+            <mat-label>Transportista</mat-label>
+            <mat-select formControlName="idTransportista">
+              <mat-option *ngFor= "let i of listaTransportistas" value="i.idTransportista">
+                 {{i.transportista}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="legacy">
+            <mat-label>Patente Chasis</mat-label>
+            <mat-select formControlName="patente1">
+              <mat-option *ngFor= "let i of listaPatentesChasis" value="i.patente1">
+                 {{i.patenteChasis}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div>
@@ -43,11 +57,7 @@
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Bruto</mat-label>
-            <mat-select formControlName="bruto">
-              <mat-option value="one">
-                
-              </mat-option>
-            </mat-select>
+            <input matInput formControlName="bruto" />
           </mat-form-field>
         </div>
       </div>
@@ -55,29 +65,30 @@
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Tara contenedor</mat-label>
-            <input matInput />
+            <input matInput formControlName="tara"/>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>DNI chofer</mat-label>
-            <input matInput />
+            <input matInput formControlName="dni"/>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Observaciones</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput formControlName="observaciones"></textarea>
           </mat-form-field>
         </div>
       </div>
       <div class="col">
         <div>
           <mat-form-field appearance="legacy">
-            <mat-label>Nac. chofer</mat-label>
-            <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+            <mat-label>Nac. Chofer</mat-label>
+            <mat-select formControlName="idNacionalidad">
+              <mat-option *ngFor= "let i of listaNacionalidades" value="i.idNacionalidad">
+                {{i.nacionalidad}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -85,8 +96,9 @@
           <mat-form-field appearance="legacy">
             <mat-label>Exportador</mat-label>
             <mat-select formControlName="idClienteExportador">
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+              <mat-option *ngFor= "let i of listaExportadores" value="i.idClienteExportador">
+                {{i.exportador}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -94,8 +106,9 @@
           <mat-form-field appearance="legacy">
             <mat-label>Destino</mat-label>
             <mat-select formControlName="idDestino">
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+              <mat-option *ngFor= "let i of listaDestinos" value="i.idDestino">
+                {{i.destino}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -137,7 +150,7 @@
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Entrada-Salida</mat-label>
-            <mat-select>
+            <mat-select formControlName="entrada">
               <mat-option value="one">First option</mat-option>
               <mat-option value="two">Second option</mat-option>
             </mat-select>
@@ -165,10 +178,11 @@
         </div>
         <div>
           <mat-form-field appearance="legacy">
-            <mat-label>CUIT exportador</mat-label>
-            <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+            <mat-label>CUIT Exportador</mat-label>
+            <mat-select formControlName="idClienteExportador">
+              <mat-option *ngFor= "let i of listaExportadores" value="i.idClienteExportador">
+                 {{i.exportador}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>

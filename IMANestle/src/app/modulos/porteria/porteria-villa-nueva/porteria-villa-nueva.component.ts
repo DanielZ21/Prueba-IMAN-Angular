@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { IngresoFabricaTB, ListaATA, ListaChofere, ListaCliente, ListaDestino, ListaExportadore, ListaNacionalidade, ListaPatentes, ListaRemito, ListaTipoArticulo, ListaTransportista, PesoActual } from 'src/app/models/IngresoFabricaTB';
+import { IngresoFabricaTB, ListaATA, ListaChofere, ListaCliente, ListaDestino, ListaExportadore, ListaNacionalidade, ListaPatentes, ListaRemito, ListaTipoArticulo, ListaTransportista, PesoActual, } from 'src/app/models/IngresoFabricaTB';
 import { IngresoService } from 'src/app/_services/ingreso.service';
 import Swal from 'sweetalert2';
 
@@ -27,7 +27,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './porteria-villa-nueva.component.html',
   styleUrls: ['./porteria-villa-nueva.component.css']
 })
-export class PorteriaVillaNuevaComponent implements AfterViewInit {
+export class PorteriaVillaNuevaComponent implements AfterViewInit{
 
   
   
@@ -43,7 +43,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
     listaChoferes!: ListaChofere[];
     listaExportadores!: ListaExportadore[];
   
-    peso!: PesoActual;
+    peso: any
   
   
   
@@ -54,6 +54,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
     ingreso: [1,[Validators.required]],
     salida: [1,[Validators.required]],
     tipoArticuloId: ['',[Validators.required]],
+    idTransportista: ['',[Validators.required]],
     patente1: [,[Validators.required]],
     patente2: [,[Validators.required]],
     ing: [,[Validators.required]],
@@ -74,7 +75,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
   });
 
 
-
+  
   
 
   
@@ -90,8 +91,11 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
       this.getPatentesAcoplado();
       this.getChoferes();
       this.getExportadores();
+      this.peso = ingresoService.getPesoActual(1);
+      
       
   }
+  
 
  
   register(){
@@ -214,14 +218,14 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit {
 
  
 
-  
+  /*
   getPesoActual(){
     this.ingresoService.getPesoActual(1).subscribe(r => {
       console.log('Peso',r);
-      this.peso = r.peso
+      return this.peso = r
     })
   }
-  
+  */
 
  
 
