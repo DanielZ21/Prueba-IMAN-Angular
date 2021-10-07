@@ -88,23 +88,6 @@
           </mat-form-field>
         </div>
 
-        <!--Origen destino-->
-
-        <div>
-          <mat-form-field appearance="legacy">
-            <mat-label>Origen/destino</mat-label>
-            <mat-select formControlName="idDestino">
-              <mat-option *ngFor= "let i of listaDestinos" value="i.idDestino">
-                {{i.destino}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-      </div>
-      <div class="col">
-
-
         <!--Tara contenedor-->
 
         <div>
@@ -133,6 +116,18 @@
         </div>
       </div>
 
+    
+
+      </div>
+      <div class="col">
+
+
+        
+
+        
+
+        
+
       <div class="col">
 
         <!--Nacionalidad de chofer-->
@@ -148,11 +143,11 @@
           </mat-form-field>
         </div>
 
-        <!--Exportador-->
+        <!--CUIT Exportador-->
 
         <div>
           <mat-form-field appearance="legacy">
-            <mat-label>Exportador</mat-label>
+            <mat-label>CUIT Exportador</mat-label>
             <mat-select formControlName="idClienteExportador">
               <mat-option *ngFor= "let i of listaExportadores" value="i.idClienteExportador">
                 {{i.exportador}}
@@ -161,11 +156,11 @@
           </mat-form-field>
         </div>
 
-        <!--Destino-->
+        <!--Origen/Destino-->
 
         <div>
           <mat-form-field appearance="legacy">
-            <mat-label>Destino</mat-label>
+            <mat-label>Origen/Destino</mat-label>
             <mat-select formControlName="idDestino">
               <mat-option *ngFor= "let i of listaDestinos" value="i.idDestino">
                 {{i.destino}}
@@ -201,17 +196,18 @@
           </mat-form-field>
         </div>
         
-        <!--
-          <div>
+        <!--Entrada/Salida-->
+        
+        <div>
           <mat-form-field appearance="legacy">
             <mat-label>Entrada-Salida</mat-label>
             <mat-select formControlName="entrada">
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+              <mat-option value="1">Entrada</mat-option>
+              <mat-option value="2">Salida</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
-        -->   
+        
       </div>
       <div class="col">
         
@@ -241,19 +237,6 @@
             <mat-select formControlName="idATA">
               <mat-option *ngFor= "let i of listaAtas" value="i.idATA">
                 {{i.ata}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <!--CUIT Exportador-->
-
-        <div>
-          <mat-form-field appearance="legacy">
-            <mat-label>CUIT Exportador</mat-label>
-            <mat-select formControlName="idClienteExportador">
-              <mat-option *ngFor= "let i of listaExportadores" value="i.idClienteExportador">
-                 {{i.exportador}}
               </mat-option>
             </mat-select>
           </mat-form-field>

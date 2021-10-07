@@ -52,7 +52,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
   registerForm: FormGroup = this.fb.group({
     id: [0],
     ingreso: [,[Validators.required]],
-    salida: [2,[Validators.required]],
+    salida: [,[Validators.required]],
     tipoArticuloId: ['',[Validators.required]],
     idTransportista: ['',[Validators.required]],
     patente1: [,[Validators.required]],
@@ -67,7 +67,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
     idDestino: [,[Validators.required]],
     idRemito: [,[Validators.required]],
     chofer: [,[Validators.required]],
-    entrada: [1,[Validators.required]],
+    entrada: [,[Validators.required]],
     taraSalida: [,[Validators.required]],
     nroContenedor: [,[Validators.required]],
     idATA: [,[Validators.required]],
@@ -115,6 +115,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
     console.log('registrar');
 
     if(this.registerForm.valid){
+      console.log(this.registerForm.value);
       this.ingresoService.postIngreso(this.registerForm.value)
       .subscribe(
         (data) => {
