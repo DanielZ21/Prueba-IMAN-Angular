@@ -53,7 +53,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
     id: [0],
     ingreso: [,[Validators.required]],
     salida: [,[Validators.required]],
-    tipoArticuloId: ['',[Validators.required]],
+    idTipoArticulo: ['',[Validators.required]],
     idTransportista: ['',[Validators.required]],
     patente1: [,[Validators.required]],
     patente2: [,[Validators.required]],

@@ -32,8 +32,8 @@
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Tipo artículo</mat-label>
-            <mat-select formControlName="tipoArticuloId">
-              <mat-option *ngFor= "let i of listaTipoArticulos" value="i.tipoArticuloId">
+            <mat-select formControlName="idTipoArticulo">
+              <mat-option *ngFor= "let i of listaTipoArticulos" [value]="i.id">
                  {{i.tipoArticulo}}
               </mat-option>
             </mat-select>
@@ -46,7 +46,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Transportista</mat-label>
             <mat-select formControlName="idTransportista">
-              <mat-option *ngFor= "let i of listaTransportistas" value="i.idTransportista">
+              <mat-option *ngFor= "let i of listaTransportistas" [value]="i.id">
                  {{i.transportista}}
               </mat-option>
             </mat-select>
@@ -59,7 +59,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Patente Chasis</mat-label>
             <mat-select formControlName="patente1">
-              <mat-option *ngFor= "let i of listaPatentesChasis" value="i.patente1">
+              <mat-option *ngFor= "let i of listaPatentesChasis" [value]="i.patente">
                  {{i.patente}}
               </mat-option>
             </mat-select>
@@ -72,7 +72,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Patente Acoplado</mat-label>
             <mat-select formControlName="patente2">
-              <mat-option *ngFor= "let i of listaPatentesAcoplado" value="i.patente2">
+              <mat-option *ngFor= "let i of listaPatentesAcoplado" [value]="i.patente">
                  {{i.patente}}
               </mat-option>
             </mat-select>
@@ -136,7 +136,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Nac. Chofer</mat-label>
             <mat-select formControlName="idNacionalidad">
-              <mat-option *ngFor= "let i of listaNacionalidades" value="i.idNacionalidad">
+              <mat-option *ngFor= "let i of listaNacionalidades" [value]="i.id">
                 {{i.nacionalidad}}
               </mat-option>
             </mat-select>
@@ -149,7 +149,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>CUIT Exportador</mat-label>
             <mat-select formControlName="idClienteExportador">
-              <mat-option *ngFor= "let i of listaExportadores" value="i.idClienteExportador">
+              <mat-option *ngFor= "let i of listaExportadores" [value]="i.id">
                 {{i.exportador}}
               </mat-option>
             </mat-select>
@@ -162,7 +162,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Origen/Destino</mat-label>
             <mat-select formControlName="idDestino">
-              <mat-option *ngFor= "let i of listaDestinos" value="i.idDestino">
+              <mat-option *ngFor= "let i of listaDestinos" [value]="i.id">
                 {{i.destino}}
               </mat-option>
             </mat-select>
@@ -174,7 +174,11 @@
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Remito</mat-label>
-            <input matInput formControlName="idRemito" />
+            <mat-select formControlName="idRemito">
+              <mat-option *ngFor= "let i of listaRemitos" [value]="i.id">
+                {{i.nroRemito}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
 
@@ -188,7 +192,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Chofer</mat-label>
             <mat-select formControlName="chofer">
-              <mat-option *ngFor= "let i of listaChoferes" value="i.chofer">
+              <mat-option *ngFor= "let i of listaChoferes" [value]="i.chofer">
                  {{i.chofer}}
               </mat-option>
               
@@ -235,7 +239,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>ATA</mat-label>
             <mat-select formControlName="idATA">
-              <mat-option *ngFor= "let i of listaAtas" value="i.idATA">
+              <mat-option *ngFor= "let i of listaAtas" [value]="i.id">
                 {{i.ata}}
               </mat-option>
             </mat-select>
