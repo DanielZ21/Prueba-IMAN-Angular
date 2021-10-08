@@ -23,7 +23,7 @@ export class IngresoService {
     return this.http.post(API_ROUTES.INGRESO_FABRICA_TB.POST_INGRESO_FABRICA, data);
   }
 
-  getPesoActual(id:number):Observable<any>{
+  getPesoActual(idBalanza:number):Observable<any>{
     return this.http.get(API_ROUTES.INGRESO_FABRICA_TB.GET_PESO_ACTUAL);
   }
 }

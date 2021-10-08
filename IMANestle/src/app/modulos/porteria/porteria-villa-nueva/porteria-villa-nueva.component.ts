@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { IngresoFabricaTB, ListaATA, ListaChofere, ListaCliente, ListaDestino, ListaExportadore, ListaNacionalidade, ListaPatentes, ListaRemito, ListaTipoArticulo, ListaTransportista, PesoActual, } from 'src/app/models/IngresoFabricaTB';
+import { IngresoFabricaTB, ListaATA, ListaChofere, ListaCliente, ListaDestino, ListaExportadore, ListaNacionalidade, ListaPatentes, ListaRemito, ListaTipoArticulo, ListaTransportista, } from 'src/app/models/IngresoFabricaTB';
 import { IngresoService } from 'src/app/_services/ingreso.service';
 import Swal from 'sweetalert2';
 
@@ -43,7 +43,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
     listaChoferes!: ListaChofere[];
     listaExportadores!: ListaExportadore[];
   
-    peso: any
+    peso!: number
   
   
   
@@ -91,8 +91,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
       this.getPatentesAcoplado();
       this.getChoferes();
       this.getExportadores();
-      this.peso = ingresoService.getPesoActual(1);
-      
+      this.getPeso();
       
   }
   
@@ -142,6 +141,15 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
         });
         this.registerForm.reset();
     }
+  }
+
+  /*--------Obtener peso de balanza--------*/ 
+
+  getPeso(){
+    this.ingresoService.getPesoActual(1).subscribe(r => {
+      console.log(r);
+      this.peso = r
+    });
   }
 
   /*-------Listas para los selects-------*/

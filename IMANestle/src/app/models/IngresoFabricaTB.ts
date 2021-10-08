@@ -5,10 +5,6 @@ export interface Ingreso {
     carga:         string;
 }
 
-export interface PesoActual{
-    idBalanza: number
-}
-
 /*
 export interface IngresoFabricaTBRespose {
     ingresoFabricaTB:      IngresoFabricaTB;

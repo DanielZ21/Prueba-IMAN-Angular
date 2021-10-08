@@ -8,7 +8,7 @@ export const API_ROUTES= {
         TEST_CONNECTION : `${ENV.apiUrl}Account/TestConnection` 
     },
 
-    /* ---------- APIS INGRESOS ------------ */
+    /* ---------- APIS INGRESOS ------------ Negocio/IngresoFabricaTB/GetPesoActual*/
 
     INGRESO_FABRICA_TB:{
         GET_INGRESOS: `${ENV.apiUrl}Negocio/IngresoFabricaTB/GetIngresos`,

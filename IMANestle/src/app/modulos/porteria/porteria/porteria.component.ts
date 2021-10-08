@@ -52,7 +52,6 @@ export class PorteriaComponent implements AfterViewInit, OnInit {
       console.log(r);
       this.dataSource = new MatTableDataSource(r);
       this.configTable();
-      //var ultimoRecurso: string = (this.totalesHorasTodos != null) ? this.totalesHorasTodos[0].recurso : "";
       this.cargando = false;
     }, e => {
       this.cargando = false;
