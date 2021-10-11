@@ -78,7 +78,7 @@ export class AuthService {
             this.cookieService.delete(this.nameUserLS);
           }
           this.cookieService.check('token');
-          return e.error.text, this.router.navigateByUrl('/porteriaVillaNueva');
+          return e.error.text, this.router.navigateByUrl('/porteria');
           
         }
       )
