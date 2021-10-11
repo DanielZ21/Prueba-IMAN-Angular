@@ -13,6 +13,10 @@ import { MaterialModule } from './shared/material/material.module';
 import { AuthService } from './_services/auth.service';
 import { AuthModule } from './modulos/auth/auth.module';
 import { PorteriaModule } from './modulos/porteria/porteria.module';
+import { SkeletonComponent } from './layout/skeleton/skeleton.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -20,6 +24,9 @@ import { PorteriaModule } from './modulos/porteria/porteria.module';
 @NgModule({
   declarations: [
     AppComponent,
+    SkeletonComponent,
+    FooterComponent,
+    SidebarComponent
     
   ],
   imports: [
@@ -31,7 +38,8 @@ import { PorteriaModule } from './modulos/porteria/porteria.module';
     ReactiveFormsModule,
     HttpClientModule,
     AuthModule,
-    PorteriaModule
+    PorteriaModule,
+    CommonModule
 
   ],
   providers: [
