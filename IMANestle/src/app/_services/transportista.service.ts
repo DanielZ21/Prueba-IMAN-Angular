@@ -11,6 +11,6 @@ export class TransportistaService {
   constructor(private http: HttpClient) { }
 
   getAllTransportistas():Observable<any>{
-    return this.http.get(API_ROUTES.TRANSPORTISTA.GET_TRANSPORTISTAS);     
+    return this.http.get(API_ROUTES.TRANSPORTISTA.GET_ALL_TRANSPORTISTAS);     
   }
 }

@@ -8,7 +8,7 @@ export const API_ROUTES= {
         TEST_CONNECTION : `${ENV.apiUrl}Account/TestConnection` 
     },
 
-    /* ---------- APIS INGRESOS ------------ Negocio/IngresoFabricaTB/GetPesoActual*/
+    /* ---------- APIS INGRESOS ------------*/
 
     INGRESO_FABRICA_TB:{
         GET_INGRESOS: `${ENV.apiUrl}Negocio/IngresoFabricaTB/GetIngresos`,
@@ -29,7 +29,26 @@ export const API_ROUTES= {
     /* ---------- APIS TRANSPORTISTAS ------------ */
 
     TRANSPORTISTA: {
-        GET_TRANSPORTISTAS: `${ENV.apiUrl}Negocio​/Transportistas​/GetAllTransportistas`,
+        GET_ALL_TRANSPORTISTAS: `${ENV.apiUrl}Negocio​/Transportistas​/GetAllTransportistas`,
+        GET_ONE_TRANSPORTISTA: `${ENV.apiUrl}Negocio​/Transportistas​/GetOneTransportista`,
+        POST_TRANSPORTISTA: `${ENV.apiUrl}Negocio​/Transportistas​/PostTransportista`,
+        DELETE_TRANSPORTISTA: `${ENV.apiUrl}Negocio​/Transportistas​/DeleteTransportista`
+    },
+
+    /* ---------- APIS ATAS ------------*/
+
+    ATA: {
+        GET_ALL_ATAS: `${ENV.apiUrl}Negocio​/Ata​/GetAllAtas`,
+        GET_ONE_ATA: `${ENV.apiUrl}Negocio​/Ata​/GetOneATA`,
+        POST_ATA: `${ENV.apiUrl}Negocio​/Ata​/PostATA`,
+        DELETE_ATA: `${ENV.apiUrl}Negocio​/Ata​/DeleteATA`,
+    },
+
+    /* ---------- APIS CHOFERES ------------*/
+
+    CHOFER: {
+        GET_ALL_CHOFERES: `${ENV.apiUrl}Negocio​/Chofer​/GetAllChoferes`,
+        GET_ONE_CHOFER: `${ENV.apiUrl}Negocio​/Chofer​/GetOneChofer`,
     }
 
 }
