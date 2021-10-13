@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { catchError } from 'rxjs/operators';
 import { AuthService } from 'src/app/_services/auth.service';
-import { UsuarioService } from 'src/app/_services/usuario.service';
+
 
 
 @Component({
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
  
 
-  constructor(private fb: FormBuilder, private authService:AuthService, private recursosService:UsuarioService) {
+  constructor(private fb: FormBuilder, private authService:AuthService) {
     this.registerForm = this.fb.group({
       'userName':['', Validators.required],
       'password':['', [Validators.required, Validators.minLength(6)]],

@@ -39,7 +39,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     AuthModule,
     PorteriaModule,
-    CommonModule
+    CommonModule,
 
   ],
   providers: [

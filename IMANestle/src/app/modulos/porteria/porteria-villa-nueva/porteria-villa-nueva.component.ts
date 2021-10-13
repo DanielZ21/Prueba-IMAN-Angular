@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { IngresoFabricaTB, ListaATA, ListaChofere, ListaCliente, ListaDestino, ListaExportadore, ListaNacionalidade, ListaPatentes, ListaRemito, ListaTipoArticulo, ListaTransportista, } from 'src/app/models/IngresoFabricaTB';
-import { IngresoService } from 'src/app/_services/ingreso.service';
+import { AbmService } from 'src/app/_services/abm.service';
 import Swal from 'sweetalert2';
 
 
@@ -79,7 +79,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
   
 
   
-  constructor(private fb: FormBuilder, private ingresoService: IngresoService){
+  constructor(private fb: FormBuilder, private abmService: AbmService){
 
       this.getTransportistas();
       this.getTipoArticulos();
@@ -115,7 +115,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
 
     if(this.registerForm.valid){
       console.log(this.registerForm.value);
-      this.ingresoService.postIngreso(this.registerForm.value)
+      this.abmService.postIngreso(this.registerForm.value)
       .subscribe(
         (data) => {
           Toast.fire({
@@ -146,7 +146,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
   /*--------Obtener peso de balanza--------*/ 
 
   getPeso(){
-    this.ingresoService.getPesoActual(1).subscribe(r => {
+    this.abmService.getPesoActual(1).subscribe(r => {
       console.log(r);
       this.peso = r
     });
@@ -155,70 +155,70 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
   /*-------Listas para los selects-------*/
 
   getTransportistas(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaTransportistas);
       this.listaTransportistas = r.listaTransportistas
     });
   }
  
   getTipoArticulos(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaTipoArticulos);
       this.listaTipoArticulos = r.listaTipoArticulos
     });
   }
 
   getAtas(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaAtas);
       this.listaAtas= r.listaAtas
     });
   }
 
   getDestinos(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaDestinos);
       this.listaDestinos= r.listaDestinos
     });
   }
 
   getRemitos(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaRemitos);
       this.listaRemitos= r.listaRemitos
     });
   }
 
   getNacionalidades(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaNacionalidades);
       this.listaNacionalidades= r.listaNacionalidades
     });
   }
 
   getPatentesChasis(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaPatentesChasis);
       this.listaPatentesChasis= r.listaPatentesChasis
     });
   }
 
   getPatentesAcoplado(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaPatentesAcoplado);
       this.listaPatentesAcoplado= r.listaPatentesAcoplado
     });
   }
 
   getChoferes(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaChoferes);
       this.listaChoferes= r.listaChoferes
     });
   }
 
   getExportadores(){
-    this.ingresoService.getNuevoIngreso().subscribe(r => {
+    this.abmService.getNuevoIngreso().subscribe(r => {
       console.log(r.listaExportadores);
       this.listaExportadores= r.listaExportadores
     });

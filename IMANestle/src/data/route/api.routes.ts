@@ -69,7 +69,7 @@ export const API_ROUTES= {
         GET_ALL_DESTINOS: `${ENV.apiUrl}Negocio​/Cliente/GetAllDestinos`,
         GET_ONE_DESTINO: `${ENV.apiUrl}Negocio​/Cliente/GetOneDestino`,
         POST_DESTINO: `${ENV.apiUrl}Negocio​/Cliente/PostDestino`,
-        DELETE_DESTINO: `${ENV.apiUrl}Negocio​/Cliente/PostDestino`,
+        DELETE_DESTINO: `${ENV.apiUrl}Negocio​/Cliente/DeleteDestino`,
     },
 
     /* ---------- APIS EXPORTADORES ------------*/
@@ -78,7 +78,7 @@ export const API_ROUTES= {
         GET_ALL_EXPORTADORES: `${ENV.apiUrl}Negocio​/Cliente/GetAllExportadores`,
         GET_ONE_EXPORTADOR: `${ENV.apiUrl}Negocio​/Cliente/GetOneExportador`,
         POST_EXPORTADOR: `${ENV.apiUrl}Negocio​/Cliente/PostExportador`,
-        DELETE_EXPÓRTADOR: `${ENV.apiUrl}Negocio​/Cliente/PostExportador`,
+        DELETE_EXPORTADOR: `${ENV.apiUrl}Negocio​/Cliente/DeleteExportador`,
     },
 
     /* ---------- APIS NACIONALIDADES ------------*/
@@ -87,7 +87,34 @@ export const API_ROUTES= {
         GET_ALL_NACIONALIDADES: `${ENV.apiUrl}Negocio​/Cliente/GetAllNacionalidades`,
         GET_ONE_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Cliente/GetOneNacionalidad`,
         POST_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Cliente/PostNacionalidad`,
-        DELETE_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Cliente/PostNacionalidad`,
+        DELETE_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Cliente/DeleteNacionalidad`,
+    },
+
+    /* ---------- APIS PATENTES ------------*/
+
+    PATENTE: {
+        GET_ALL_PATENTES: `${ENV.apiUrl}Negocio​/Cliente/GetAllPatentes`,
+        GET_ONE_PATENTE: `${ENV.apiUrl}Negocio​/Cliente/GetOnePatente`,
+        POST_PATENTE: `${ENV.apiUrl}Negocio​/Cliente/PostPatente`,
+        DELETE_PATENTE: `${ENV.apiUrl}Negocio​/Cliente/DeletePatente`,
+    },
+
+    /* ---------- APIS REMITOS ------------*/
+
+    REMITO: {
+        GET_ALL_REMITOS: `${ENV.apiUrl}Negocio​/Cliente/GetAllRemitos`,
+        GET_ONE_REMITO: `${ENV.apiUrl}Negocio​/Cliente/GetOneRemito`,
+        POST_REMITO: `${ENV.apiUrl}Negocio​/Cliente/PostRemito`,
+        DELETE_REMITO: `${ENV.apiUrl}Negocio​/Cliente/DeleteRemito`,
+    },
+
+    /* ---------- APIS TIPO ARTICULOS ------------*/
+
+    TIPO_ARTICULO: {
+        GET_ALL_TIPO_ARTICULOS: `${ENV.apiUrl}Negocio​/Cliente/GetAllTipoArticulos`,
+        GET_ONE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/Cliente/GetOneTipoArticulo`,
+        POST_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/Cliente/PostTipoArticulo`,
+        DELETE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/Cliente/DeleteTipoArticulo`,
     },
 
 }
