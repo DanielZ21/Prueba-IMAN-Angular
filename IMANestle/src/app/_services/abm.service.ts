@@ -28,7 +28,7 @@ export class AbmService {
     return this.http.post(API_ROUTES.INGRESO_FABRICA_TB.POST_INGRESO_FABRICA, data);
   }
 
-  getPesoActual(idBalanza:number):Observable<any>{
+  getPesoActual(id : number):Observable<any>{
     return this.http.get(API_ROUTES.INGRESO_FABRICA_TB.GET_PESO_ACTUAL);
   }
 
@@ -165,11 +165,11 @@ export class AbmService {
   }
 
   postNacionalidad(data:any):Observable<any>{
-    return this.http.post(API_ROUTES.EXPORTADOR.POST_EXPORTADOR, data)
+    return this.http.post(API_ROUTES.NACIONALIDAD.POST_NACIONALIDAD, data)
   }
 
   deleteNacionalidad(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.EXPORTADOR.DELETE_EXPORTADOR)
+    return this.http.delete(API_ROUTES.NACIONALIDAD.DELETE_NACIONALIDAD)
   }
 
   /*------------PATENTE---------------*/

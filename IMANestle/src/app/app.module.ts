@@ -17,6 +17,8 @@ import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
+import { AbmModule } from './modulos/abm/abm.module';
+
 
 
 
@@ -40,6 +42,8 @@ import { CommonModule } from '@angular/common';
     AuthModule,
     PorteriaModule,
     CommonModule,
+    AbmModule
+    
 
   ],
   providers: [

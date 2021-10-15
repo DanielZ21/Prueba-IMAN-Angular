@@ -30,7 +30,7 @@
         <!--Tipo artículos-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="tipoArticuloIF;else tipoArticulo">
             <mat-label>Tipo artículo</mat-label>
             <mat-select formControlName="idTipoArticulo">
               <mat-option *ngFor= "let i of listaTipoArticulos" [value]="i.id">
@@ -40,10 +40,24 @@
           </mat-form-field>
         </div>
 
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTipoArticulos()">
+          <mat-icon class="mb-3">add</mat-icon>
+        </button>
+  
+        <ng-template #tipoArticulo [formGroup]="tipoArticuloForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nuevo tipo</mat-label>
+            <input matInput placeholder="Ingrese una categoría" formControlName="tipoArticulo" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearTipoArticulo()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
+
         <!--Transportistas-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="transportistaIF;else transportista">
             <mat-label>Transportista</mat-label>
             <mat-select formControlName="idTransportista">
               <mat-option *ngFor= "let i of listaTransportistas" [value]="i.id">
@@ -53,10 +67,24 @@
           </mat-form-field>
         </div>
 
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTransportistas()">
+          <mat-icon class="mb-3">add</mat-icon>
+        </button>
+
+        <ng-template #transportista [formGroup]="transportistaForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nuevo transportista</mat-label>
+            <input matInput placeholder="Ingrese nombre de transportista" formControlName="transportista" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearTransportista()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
+
         <!--Patente chasis-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="patenteChasisIF;else patenteChasis">
             <mat-label>Patente Chasis</mat-label>
             <mat-select formControlName="patente1">
               <mat-option *ngFor= "let i of listaPatentesChasis" [value]="i.patente">
@@ -65,6 +93,20 @@
             </mat-select>
           </mat-form-field>
         </div>
+
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarPatentes()">
+          <mat-icon class="mb-3">add</mat-icon>
+        </button>
+
+        <ng-template #patenteChasis [formGroup]="patenteChasisForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nueva patente</mat-label>
+            <input matInput placeholder="Ingrese nueva patente de chasis" formControlName="patenteChasis" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearPatente()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
 
         <!--Patente acoplado-->
 
@@ -124,16 +166,13 @@
 
         
 
-        
-
-        
-
+    
       <div class="col">
 
         <!--Nacionalidad de chofer-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="nacionalidadIF;else nacionalidad">
             <mat-label>Nac. Chofer</mat-label>
             <mat-select formControlName="idNacionalidad">
               <mat-option *ngFor= "let i of listaNacionalidades" [value]="i.id">
@@ -143,10 +182,24 @@
           </mat-form-field>
         </div>
 
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarNacionalidades()">
+          <mat-icon class="mb-3">add</mat-icon>
+        </button>
+
+        <ng-template #nacionalidad [formGroup]="nacionalidadForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nueva nacionalidad</mat-label>
+            <input matInput placeholder="Ingrese nueva nacionalidad" formControlName="nacionalidad" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearNacionalidad()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
+
         <!--CUIT Exportador-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="exportadorIF;else exportador">
             <mat-label>CUIT Exportador</mat-label>
             <mat-select formControlName="idClienteExportador">
               <mat-option *ngFor= "let i of listaExportadores" [value]="i.id">
@@ -156,10 +209,24 @@
           </mat-form-field>
         </div>
 
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarExportadores()">
+          <mat-icon class="mb-3">add</mat-icon>
+        </button>
+
+        <ng-template #exportador [formGroup]="exportadorForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nueva nacionalidad</mat-label>
+            <input matInput placeholder="Ingrese nuevo exportador" formControlName="exportador" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearExportador()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
+
         <!--Origen/Destino-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="destinoIF;else destino">
             <mat-label>Origen/Destino</mat-label>
             <mat-select formControlName="idDestino">
               <mat-option *ngFor= "let i of listaDestinos" [value]="i.id">
@@ -168,11 +235,33 @@
             </mat-select>
           </mat-form-field>
         </div>
+
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarDestinos()">
+          <mat-icon class="mb-3">add</mat-icon>
+        </button>
+
+        <ng-template #destino [formGroup]="destinoForm">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese un nuevo destino</mat-label>
+              <input matInput placeholder="Destino" formControlName="destino" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Código afip</mat-label>
+              <input matInput placeholder="Ingrese ´código" formControlName="codigoAfip" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-raised-button (click)="crearDestino()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
        
         <!--Remito-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="destinoIF;else destino">
             <mat-label>Remito</mat-label>
             <mat-select formControlName="idRemito">
               <mat-option *ngFor= "let i of listaRemitos" [value]="i.id">
@@ -189,16 +278,29 @@
         <!--Chofer-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="choferIF;else chofer">
             <mat-label>Chofer</mat-label>
             <mat-select formControlName="chofer">
               <mat-option *ngFor= "let i of listaChoferes" [value]="i.chofer">
                  {{i.chofer}}
               </mat-option>
-              
             </mat-select>
           </mat-form-field>
         </div>
+
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarChoferes()">
+          <mat-icon class="mb-3">add</mat-icon>
+        </button>
+
+        <ng-template #chofer [formGroup]="choferForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nuevo chofer</mat-label>
+            <input matInput placeholder="Chofer" formControlName="chofer" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearChofer()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
         
         <!--Entrada/Salida-->
         
@@ -236,7 +338,7 @@
         <!--ATAS-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="ataIF;else ata">
             <mat-label>ATA</mat-label>
             <mat-select formControlName="idATA">
               <mat-option *ngFor= "let i of listaAtas" [value]="i.id">
@@ -245,6 +347,28 @@
             </mat-select>
           </mat-form-field>
         </div>
+
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarAtas()">
+          <mat-icon class="mb-3">add</mat-icon>
+        </button>
+
+        <ng-template #ata [formGroup]="ataForm">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese un nueva ATA</mat-label>
+              <input matInput placeholder="ATA" formControlName="ata" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>CUIT</mat-label>
+              <input matInput placeholder="Ingrese CUIT" formControlName="cuit" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-raised-button (click)="crearAta()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
 
         <!--Permiso embarque-->
         

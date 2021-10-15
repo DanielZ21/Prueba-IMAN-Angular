@@ -41,7 +41,7 @@ export const API_ROUTES= {
     ATA: {
         GET_ALL_ATAS: `${ENV.apiUrl}Negocio​/Ata​/GetAllAtas`,
         GET_ONE_ATA: `${ENV.apiUrl}Negocio​/Ata​/GetOneATA`,
-        POST_ATA: `${ENV.apiUrl}Negocio​/Ata​/PostATA`,
+        POST_ATA: `${ENV.apiUrl}Negocio/Ata/PostATA`,
         DELETE_ATA: `${ENV.apiUrl}Negocio​/Ata​/DeleteATA`,
     },
 
@@ -50,7 +50,7 @@ export const API_ROUTES= {
     CHOFER: {
         GET_ALL_CHOFERES: `${ENV.apiUrl}Negocio​/Chofer​/GetAllChoferes`,
         GET_ONE_CHOFER: `${ENV.apiUrl}Negocio​/Chofer​/GetOneChofer`,
-        POST_CHOFER: `${ENV.apiUrl}Negocio​/Chofer​/PostChofer`,
+        POST_CHOFER: `${ENV.apiUrl}Negocio/Chofer/PostChofer`,
         DELETE_CHOFER: `${ENV.apiUrl}Negocio​/Chofer​/DeleteChofer`
     },
 
@@ -66,10 +66,10 @@ export const API_ROUTES= {
     /* ---------- APIS DESTINOS ------------*/
 
     DESTINO: {
-        GET_ALL_DESTINOS: `${ENV.apiUrl}Negocio​/Cliente/GetAllDestinos`,
-        GET_ONE_DESTINO: `${ENV.apiUrl}Negocio​/Cliente/GetOneDestino`,
-        POST_DESTINO: `${ENV.apiUrl}Negocio​/Cliente/PostDestino`,
-        DELETE_DESTINO: `${ENV.apiUrl}Negocio​/Cliente/DeleteDestino`,
+        GET_ALL_DESTINOS: `${ENV.apiUrl}Negocio​/Destino/GetAllDestinos`,
+        GET_ONE_DESTINO: `${ENV.apiUrl}Negocio​/Destino/GetOneDestino`,
+        POST_DESTINO: `${ENV.apiUrl}Negocio/Destino/PostDestino`,
+        DELETE_DESTINO: `${ENV.apiUrl}Negocio​/Destino/DeleteDestino`,
     },
 
     /* ---------- APIS EXPORTADORES ------------*/
@@ -84,37 +84,37 @@ export const API_ROUTES= {
     /* ---------- APIS NACIONALIDADES ------------*/
 
     NACIONALIDAD: {
-        GET_ALL_NACIONALIDADES: `${ENV.apiUrl}Negocio​/Cliente/GetAllNacionalidades`,
-        GET_ONE_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Cliente/GetOneNacionalidad`,
-        POST_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Cliente/PostNacionalidad`,
-        DELETE_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Cliente/DeleteNacionalidad`,
+        GET_ALL_NACIONALIDADES: `${ENV.apiUrl}Negocio​/Nacionalidad/GetAllNacionalidades`,
+        GET_ONE_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Nacionalidad/GetOneNacionalidad`,
+        POST_NACIONALIDAD: `${ENV.apiUrl}Negocio/Nacionalidad/PostNacionaliadad`,
+        DELETE_NACIONALIDAD: `${ENV.apiUrl}Negocio​/Nacionalidad/DeleteNacionalidad`,
     },
 
     /* ---------- APIS PATENTES ------------*/
 
     PATENTE: {
-        GET_ALL_PATENTES: `${ENV.apiUrl}Negocio​/Cliente/GetAllPatentes`,
-        GET_ONE_PATENTE: `${ENV.apiUrl}Negocio​/Cliente/GetOnePatente`,
-        POST_PATENTE: `${ENV.apiUrl}Negocio​/Cliente/PostPatente`,
-        DELETE_PATENTE: `${ENV.apiUrl}Negocio​/Cliente/DeletePatente`,
+        GET_ALL_PATENTES: `${ENV.apiUrl}Negocio​/Patente/GetAllPatentes`,
+        GET_ONE_PATENTE: `${ENV.apiUrl}Negocio​/Patente/GetOnePatente`,
+        POST_PATENTE: `${ENV.apiUrl}Negocio/Patente/PostPatentes`,
+        DELETE_PATENTE: `${ENV.apiUrl}Negocio​/Patentee/DeletePatente`,
     },
 
     /* ---------- APIS REMITOS ------------*/
 
     REMITO: {
-        GET_ALL_REMITOS: `${ENV.apiUrl}Negocio​/Cliente/GetAllRemitos`,
-        GET_ONE_REMITO: `${ENV.apiUrl}Negocio​/Cliente/GetOneRemito`,
-        POST_REMITO: `${ENV.apiUrl}Negocio​/Cliente/PostRemito`,
-        DELETE_REMITO: `${ENV.apiUrl}Negocio​/Cliente/DeleteRemito`,
+        GET_ALL_REMITOS: `${ENV.apiUrl}Negocio​/Remito/GetAllRemitos`,
+        GET_ONE_REMITO: `${ENV.apiUrl}Negocio​/Remito/GetOneRemito`,
+        POST_REMITO: `${ENV.apiUrl}Negocio​/Remito/PostRemito`,
+        DELETE_REMITO: `${ENV.apiUrl}Negocio​/Remito/DeleteRemito`,
     },
 
     /* ---------- APIS TIPO ARTICULOS ------------*/
 
     TIPO_ARTICULO: {
-        GET_ALL_TIPO_ARTICULOS: `${ENV.apiUrl}Negocio​/Cliente/GetAllTipoArticulos`,
-        GET_ONE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/Cliente/GetOneTipoArticulo`,
-        POST_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/Cliente/PostTipoArticulo`,
-        DELETE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/Cliente/DeleteTipoArticulo`,
+        GET_ALL_TIPO_ARTICULOS: `${ENV.apiUrl}Negocio​/TipoArticulo/GetAllTipoArticulos`,
+        GET_ONE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/TipoArticulo/GetOneTipoArticulo`,
+        POST_TIPO_ARTICULO: `${ENV.apiUrl}Negocio/TipoArticulo/PostTipoArticulo`,
+        DELETE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/TipoArticulo/DeleteTipoArticulo`,
     },
 
 }
