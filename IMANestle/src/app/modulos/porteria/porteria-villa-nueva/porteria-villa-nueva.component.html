@@ -4,6 +4,29 @@
   </div>
 </div>
 
+<!--
+<div class="container">
+  
+  <form [formGroup]="formGroup">
+    <mat-form-field>
+      <mat-label>
+        Employee
+      </mat-label>
+      <input formControlName="tipoArticulo" matInput type="text" [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let item of listaTipoArticulos"  [value]="item.tipoArticulo">
+          {{item.tipoArticulo}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+</div>
+-->
+
+
+
+
 <div class="container">
   <div [formGroup]="registerForm">
     <div class="row">
@@ -53,6 +76,8 @@
             <button mat-raised-button (click)="crearTipoArticulo()" class="mr-3 btn-verde">Crear</button>
           </div>
         </ng-template>
+
+        
 
         <!--Transportistas-->
 

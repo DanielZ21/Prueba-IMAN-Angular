@@ -22,6 +22,7 @@ const routes: Routes = [
 
   {path: 'porteria', component: PorteriaComponent},
   {path: 'porteriaVillaNueva', component: PorteriaVillaNuevaComponent},
+  {path: 'editar/:id', component: PorteriaVillaNuevaComponent },
   {path: 'ingresoegreso', component: IngresoegresoComponent}
   
     

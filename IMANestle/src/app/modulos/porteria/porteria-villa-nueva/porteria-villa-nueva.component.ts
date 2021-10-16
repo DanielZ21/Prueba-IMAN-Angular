@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { IngresoFabricaTB, ListaATA, ListaChofere, ListaCliente, ListaDestino, ListaExportadore, ListaNacionalidade, ListaPatentes, ListaRemito, ListaTipoArticulo, ListaTransportista, } from 'src/app/models/IngresoFabricaTB';
 import { AbmService } from 'src/app/_services/abm.service';
 import Swal from 'sweetalert2';
@@ -28,9 +30,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './porteria-villa-nueva.component.html',
   styleUrls: ['./porteria-villa-nueva.component.css']
 })
-export class PorteriaVillaNuevaComponent implements AfterViewInit{
+export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
 
-  
+  filteredOptions: any;
+
+  formGroup!: FormGroup;
+  options: any;
   
     ingresoFabricaTB!:IngresoFabricaTB;
     listaTransportistas!: ListaTransportista[];
@@ -136,10 +141,40 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
 
 
   
+  /*
+  ngOnInit(){
+    this.initForm();
+    this.getNames();
+  }
 
+  initForm(){
+    this.formGroup = this.fb.group({
+      'tipoArticulo' : ['']
+    })
+    this.formGroup.get('tipoArticulo')?.valueChanges.subscribe(response => {
+      console.log('data is ', response);
+      this.filterData(response);
+    })
+  }
 
-  
-  
+  filterData(enteredData: any){
+    this.listaTipoArticulos = this.listaTipoArticulos.filter((listaTipoArticulos) => {
+      return this.listaTipoArticulos
+      
+      //.toLowerCase().indexOf(enteredData.toLowerCase()) > -1
+    })
+  }
+
+  getNames(){
+    this.abmService.getNuevoIngreso().subscribe(response => {
+      this.options = response;
+      this.filteredOptions = response;
+    })
+  }
+  */
+
+  accion = 'Agregar';
+  id = 0;
 
   
   constructor(private fb: FormBuilder, private abmService: AbmService, private activeRouter: ActivatedRoute, private router: Router){
@@ -155,15 +190,59 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit{
       this.getChoferes();
       this.getExportadores();
       this.getPeso();
+      this.id = +this.activeRouter.snapshot.paramMap.get('id')!;
       
   }
 
+  ngOnInit(): void {
+    this.editarIngreso();
+  }
+
+
+  editarIngreso(){
+    if(this.id !== 0) {
+      this.accion = 'Editar';
+      this.abmService.getIngreso(this.id).subscribe(data => {
+        this.ingresoFabricaTB = data;
+        this.registerForm.patchValue({
+          ingreso: data.ingreso,
+          salida: data.salida,
+          idTipoArticulo: data.idTipoArticulo,
+          idTransportista: data.idTransportista,
+          patente1: data.patente1,
+          patente2: data.patente2,
+          ing: data.ing,
+          bruto: data.bruto,
+          tara: data.tara,
+          dni: data.dni,
+          observaciones: data.observaciones,
+          idNacionalidad: data.idNacionalidad,
+          idClienteExportador: data.idClienteExportador,
+          idDestino: data.idDestino,
+          idRemito: data.idRemito,
+          chofer: data.chofer,
+          entrada: data.entrada,
+          taraSalida: data.taraSalida,
+          nroContenedor: data.nroContenedor,
+          idATA: data.idATA,
+          nroPermisoEmbarque: data.nroPermisoEmbarque,
+        })
+      }, error => {
+        console.log(error);
+      })
+    }
+   
+  }
+
+
+  /*
   ngOnInit(): void{ //Prueba de peso
     let BalanzaId = this.activeRouter.snapshot.paramMap.get('id');
     this.abmService.getPesoActual(1).subscribe(data =>{
       console.log(data)
     })
   }
+  */
 
   crearAta(){
     const Toast = Swal.mixin({

@@ -111,7 +111,7 @@ export const API_ROUTES= {
     /* ---------- APIS TIPO ARTICULOS ------------*/
 
     TIPO_ARTICULO: {
-        GET_ALL_TIPO_ARTICULOS: `${ENV.apiUrl}Negocio​/TipoArticulo/GetAllTipoArticulos`,
+        GET_ALL_TIPO_ARTICULOS: `${ENV.apiUrl}Negocio/TipoArticulo/GetAllTipoArticulos`,
         GET_ONE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/TipoArticulo/GetOneTipoArticulo`,
         POST_TIPO_ARTICULO: `${ENV.apiUrl}Negocio/TipoArticulo/PostTipoArticulo`,
         DELETE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/TipoArticulo/DeleteTipoArticulo`,

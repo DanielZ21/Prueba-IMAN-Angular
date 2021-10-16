@@ -20,7 +20,7 @@ export class AbmService {
     return this.http.get(API_ROUTES.INGRESO_FABRICA_TB.GET_NUEVO_INGRESO_FABRICA);     
   }
 
-  getIngreso():Observable<any>{
+  getIngreso(id:number):Observable<any>{
     return this.http.get(API_ROUTES.INGRESO_FABRICA_TB.GET_INGRESO_FABRICA)
   }
 
