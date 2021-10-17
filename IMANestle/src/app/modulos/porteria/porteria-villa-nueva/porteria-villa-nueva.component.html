@@ -55,12 +55,13 @@
         <div>
           <mat-form-field appearance="legacy" *ngIf="tipoArticuloIF;else tipoArticulo">
             <mat-label>Tipo artículo</mat-label>
-            <mat-select formControlName="idTipoArticulo">
+            <mat-select formControlName="idTipoArticulo" required>
               <mat-option *ngFor= "let i of listaTipoArticulos" [value]="i.id">
                  {{i.tipoArticulo}}
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('idTipoArticulo')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTipoArticulos()">
@@ -90,6 +91,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('idTransportista')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTransportistas()">
@@ -117,6 +119,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('patente1')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarPatentes()">
@@ -144,6 +147,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('patente2')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <!--Bruto-->
@@ -153,6 +157,8 @@
             <mat-label>Bruto</mat-label>
             <input matInput formControlName="bruto" />
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('bruto')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <mat-error *ngIf="registerForm.get('bruto')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--Tara contenedor-->
@@ -162,6 +168,8 @@
             <mat-label>Tara contenedor</mat-label>
             <input matInput formControlName="tara"/>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('tara')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <mat-error *ngIf="registerForm.get('tara')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--DNI chofer-->
@@ -171,6 +179,8 @@
             <mat-label>DNI chofer</mat-label>
             <input matInput formControlName="dni"/>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('dni')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <mat-error *ngIf="registerForm.get('dni')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--Observaciones-->
@@ -205,6 +215,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('idNacionalidad')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarNacionalidades()">
@@ -232,6 +243,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('idClienteExportador')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarExportadores()">
@@ -259,6 +271,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('idDestino')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarDestinos()">
@@ -294,6 +307,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('idRemito')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
       </div>
@@ -311,6 +325,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('chofer')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarChoferes()">
@@ -337,6 +352,7 @@
               <mat-option value="2">Salida</mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('entrada')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
         
       </div>
@@ -349,6 +365,8 @@
             <mat-label>Tara de salida</mat-label>
             <input matInput formControlName="taraSalida" />
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('taraSalida')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <mat-error *ngIf="registerForm.get('taraSalida')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--Nro contenedor-->
@@ -358,6 +376,8 @@
             <mat-label>Nro. contenedor</mat-label>
             <input matInput formControlName="nroContenedor" />
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('nroContenedor')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <mat-error *ngIf="registerForm.get('nroContenedor')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--ATAS-->
@@ -371,6 +391,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('idATA')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
         <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarAtas()">
@@ -402,6 +423,8 @@
             <mat-label>Permiso embarque</mat-label>
             <input matInput formControlName="nroPermisoEmbarque" />
           </mat-form-field>
+          <mat-error *ngIf="registerForm.get('nroPermisoEmbarque')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <mat-error *ngIf="registerForm.get('nroPermisoEmbarque')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
       </div>
     </div>

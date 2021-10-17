@@ -25,6 +25,11 @@ th.mat-sort-header-sorted {
 }
 
 #peso{
-    font-size: large;
+    font-size: 70px;
     color: rgb(255, 0, 0);
+    font-weight: 400px;
+}
+
+#requerido{
+    color: blue;
 }

@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AbmRoutingModule } from './abm-routing.module';
-import { AtaCreateComponent } from './ata-create/ata-create.component';
+import { AtaAbmComponent } from './ata-abm/ata-abm.component';
 
 
 @NgModule({
   declarations: [
-    AtaCreateComponent
+    AtaAbmComponent
   ],
   imports: [
     CommonModule,
     AbmRoutingModule
   ],
   exports: [
-    AtaCreateComponent
+    AtaAbmComponent
 
   ]
     

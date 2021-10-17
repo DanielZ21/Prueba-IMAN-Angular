@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AtaCreateComponent } from './ata-create.component';
+import { AtaAbmComponent } from './ata-abm.component';
 
-describe('AtaCreateComponent', () => {
-  let component: AtaCreateComponent;
-  let fixture: ComponentFixture<AtaCreateComponent>;
+describe('AtaAbmComponent', () => {
+  let component: AtaAbmComponent;
+  let fixture: ComponentFixture<AtaAbmComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AtaCreateComponent ]
+      declarations: [ AtaAbmComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AtaCreateComponent);
+    fixture = TestBed.createComponent(AtaAbmComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

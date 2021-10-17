@@ -74,8 +74,8 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
     patente1: [,[Validators.required]],
     patente2: [,[Validators.required]],
     ing: [1,[Validators.required]],
-    bruto: [,[Validators.required]],
-    tara: [,[Validators.required]],
+    bruto: [,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+    tara: [,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
     dni: [,[Validators.required]],
     observaciones: [,[Validators.required]],
     idNacionalidad: [,[Validators.required]],
@@ -87,7 +87,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
     taraSalida: [,[Validators.required]],
     nroContenedor: [,[Validators.required]],
     idATA: [,[Validators.required]],
-    nroPermisoEmbarque: [,[Validators.required]],
+    nroPermisoEmbarque: [,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
   });
 
   tipoArticuloForm: FormGroup = this.fb.group({
@@ -191,12 +191,15 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
       this.getExportadores();
       this.getPeso();
       this.id = +this.activeRouter.snapshot.paramMap.get('id')!;
+      this.editarIngreso();
       
   }
 
   ngOnInit(): void {
     this.editarIngreso();
   }
+
+
 
 
   editarIngreso(){

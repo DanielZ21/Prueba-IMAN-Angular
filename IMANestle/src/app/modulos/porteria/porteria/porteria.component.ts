@@ -36,7 +36,7 @@ export class PorteriaComponent implements AfterViewInit, OnInit {
 
   public ingresos: Ingreso[] | undefined;
   dataSource!: MatTableDataSource<Ingreso>;
-  displayedColumns: string[] = ['fechaIngreso', 'origen', 'patente', 'carga'];
+  displayedColumns: string[] = ['fechaIngreso', 'origen', 'patente', 'carga', 'ruta'];
   cargando: boolean = false;
   @ViewChild(MatSort) sort!: MatSort;
 
