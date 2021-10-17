@@ -82,7 +82,7 @@
 
         <!--Transportistas-->
 
-        <div>
+        <div class="add">
           <mat-form-field appearance="legacy" *ngIf="transportistaIF;else transportista">
             <mat-label>Transportista</mat-label>
             <mat-select formControlName="idTransportista">
@@ -91,12 +91,13 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTransportistas()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
           <mat-error *ngIf="registerForm.get('idTransportista')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
-        </div>
+        
 
-        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTransportistas()">
-          <mat-icon class="mb-3">add</mat-icon>
-        </button>
+        
 
         <ng-template #transportista [formGroup]="transportistaForm">
           <mat-form-field appearance="fill">
@@ -108,9 +109,12 @@
           </div>
         </ng-template>
 
+        </div>
+          
+
         <!--Patente chasis-->
 
-        <div>
+        <div class="add">
           <mat-form-field appearance="legacy" *ngIf="patenteChasisIF;else patenteChasis">
             <mat-label>Patente Chasis</mat-label>
             <mat-select formControlName="patente1">
@@ -119,12 +123,13 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarPatentes()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
           <mat-error *ngIf="registerForm.get('patente1')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
-        </div>
+        
 
-        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarPatentes()">
-          <mat-icon class="mb-3">add</mat-icon>
-        </button>
+        
 
         <ng-template #patenteChasis [formGroup]="patenteChasisForm">
           <mat-form-field appearance="fill">
@@ -135,6 +140,9 @@
             <button mat-raised-button (click)="crearPatente()" class="mr-3 btn-verde">Crear</button>
           </div>
         </ng-template>
+
+        </div>
+          
 
         <!--Patente acoplado-->
 
@@ -149,7 +157,17 @@
           </mat-form-field>
           <mat-error *ngIf="registerForm.get('patente2')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
+      </div>
 
+    
+
+      
+
+
+        
+
+    
+      <div class="col">
         <!--Bruto-->
 
         <div>
@@ -192,21 +210,11 @@
           </mat-form-field>
         </div>
       </div>
-
-    
-
-      </div>
-      <div class="col">
-
-
-        
-
-    
       <div class="col">
 
         <!--Nacionalidad de chofer-->
 
-        <div>
+        <div class="add">
           <mat-form-field appearance="legacy" *ngIf="nacionalidadIF;else nacionalidad">
             <mat-label>Nac. Chofer</mat-label>
             <mat-select formControlName="idNacionalidad">
@@ -215,12 +223,13 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarNacionalidades()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
           <mat-error *ngIf="registerForm.get('idNacionalidad')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
-        </div>
+        
 
-        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarNacionalidades()">
-          <mat-icon class="mb-3">add</mat-icon>
-        </button>
+        
 
         <ng-template #nacionalidad [formGroup]="nacionalidadForm">
           <mat-form-field appearance="fill">
@@ -232,69 +241,85 @@
           </div>
         </ng-template>
 
+        </div>
+          
+
         <!--CUIT Exportador-->
 
-        <div>
+        <div class="add">
           <mat-form-field appearance="legacy" *ngIf="exportadorIF;else exportador">
             <mat-label>CUIT Exportador</mat-label>
             <mat-select formControlName="idClienteExportador">
-              <mat-option *ngFor= "let i of listaExportadores" [value]="i.id">
+              <mat-option *ngFor="let i of listaExportadores" [value]="i.id">
                 {{i.exportador}}
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-error *ngIf="registerForm.get('idClienteExportador')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon"
+            (click)="mostrarExportadores()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          <mat-error *ngIf="registerForm.get('idClienteExportador')?.hasError('required')">
+            <p id="requerido">*Campo requerido</p>
+          </mat-error>
+        
+        
+        
+          <ng-template #exportador [formGroup]="exportadorForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese un nueva nacionalidad</mat-label>
+              <input matInput placeholder="Ingrese nuevo exportador" formControlName="exportador" autocomplete="off">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button (click)="crearExportador()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+        
         </div>
-
-        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarExportadores()">
-          <mat-icon class="mb-3">add</mat-icon>
-        </button>
-
-        <ng-template #exportador [formGroup]="exportadorForm">
-          <mat-form-field appearance="fill">
-            <mat-label>Ingrese un nueva nacionalidad</mat-label>
-            <input matInput placeholder="Ingrese nuevo exportador" formControlName="exportador" autocomplete="off">
-          </mat-form-field>
-          <div>
-            <button mat-raised-button (click)="crearExportador()" class="mr-3 btn-verde">Crear</button>
-          </div>
-        </ng-template>
+          
 
         <!--Origen/Destino-->
 
-        <div>
+        <div class="add">
           <mat-form-field appearance="legacy" *ngIf="destinoIF;else destino">
             <mat-label>Origen/Destino</mat-label>
             <mat-select formControlName="idDestino">
-              <mat-option *ngFor= "let i of listaDestinos" [value]="i.id">
+              <mat-option *ngFor="let i of listaDestinos" [value]="i.id">
                 {{i.destino}}
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-error *ngIf="registerForm.get('idDestino')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarDestinos()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          <mat-error *ngIf="registerForm.get('idDestino')?.hasError('required')">
+            <p id="requerido">*Campo requerido</p>
+          </mat-error>
+        
+        
+        
+        
+          <ng-template #destino [formGroup]="destinoForm">
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Ingrese un nuevo destino</mat-label>
+                <input matInput placeholder="Destino" formControlName="destino" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Código afip</mat-label>
+                <input matInput placeholder="Ingrese ´código" formControlName="codigoAfip" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <button mat-raised-button (click)="crearDestino()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+        
         </div>
-
-        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarDestinos()">
-          <mat-icon class="mb-3">add</mat-icon>
-        </button>
-
-        <ng-template #destino [formGroup]="destinoForm">
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Ingrese un nuevo destino</mat-label>
-              <input matInput placeholder="Destino" formControlName="destino" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Código afip</mat-label>
-              <input matInput placeholder="Ingrese ´código" formControlName="codigoAfip" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <div>
-            <button mat-raised-button (click)="crearDestino()" class="mr-3 btn-verde">Crear</button>
-          </div>
-        </ng-template>
+        
+         
        
         <!--Remito-->
 
@@ -310,38 +335,41 @@
           <mat-error *ngIf="registerForm.get('idRemito')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
 
-      </div>
-      <div class="col">
-
 
         <!--Chofer-->
 
-        <div>
+        <div class="add">
           <mat-form-field appearance="legacy" *ngIf="choferIF;else chofer">
             <mat-label>Chofer</mat-label>
             <mat-select formControlName="chofer">
-              <mat-option *ngFor= "let i of listaChoferes" [value]="i.chofer">
-                 {{i.chofer}}
+              <mat-option *ngFor="let i of listaChoferes" [value]="i.chofer">
+                {{i.chofer}}
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-error *ngIf="registerForm.get('chofer')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
-        </div>
-
-        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarChoferes()">
-          <mat-icon class="mb-3">add</mat-icon>
-        </button>
-
-        <ng-template #chofer [formGroup]="choferForm">
-          <mat-form-field appearance="fill">
-            <mat-label>Ingrese un nuevo chofer</mat-label>
-            <input matInput placeholder="Chofer" formControlName="chofer" autocomplete="off">
-          </mat-form-field>
-          <div>
-            <button mat-raised-button (click)="crearChofer()" class="mr-3 btn-verde">Crear</button>
-          </div>
-        </ng-template>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarChoferes()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          <mat-error *ngIf="registerForm.get('chofer')?.hasError('required')">
+            <p id="requerido">*Campo requerido</p>
+          </mat-error>
         
+        
+        
+        
+          <ng-template #chofer [formGroup]="choferForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese un nuevo chofer</mat-label>
+              <input matInput placeholder="Chofer" formControlName="chofer" autocomplete="off">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button (click)="crearChofer()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+        </div>  
+      </div>
+      <div class="col">
+
         <!--Entrada/Salida-->
         
         <div>
@@ -354,9 +382,6 @@
           </mat-form-field>
           <mat-error *ngIf="registerForm.get('entrada')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
         </div>
-        
-      </div>
-      <div class="col">
         
         <!--Tara salida-->
 
@@ -382,39 +407,45 @@
 
         <!--ATAS-->
 
-        <div>
+        <div class="add">
           <mat-form-field appearance="legacy" *ngIf="ataIF;else ata">
             <mat-label>ATA</mat-label>
             <mat-select formControlName="idATA">
-              <mat-option *ngFor= "let i of listaAtas" [value]="i.id">
+              <mat-option *ngFor="let i of listaAtas" [value]="i.id">
                 {{i.ata}}
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-error *ngIf="registerForm.get('idATA')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarAtas()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          <mat-error *ngIf="registerForm.get('idATA')?.hasError('required')">
+            <p id="requerido">*Campo requerido</p>
+          </mat-error>
+        
+        
+          
+        
+          <ng-template #ata [formGroup]="ataForm">
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Ingrese un nueva ATA</mat-label>
+                <input matInput placeholder="ATA" formControlName="ata" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>CUIT</mat-label>
+                <input matInput placeholder="Ingrese CUIT" formControlName="cuit" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <button mat-raised-button (click)="crearAta()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+        
         </div>
-
-        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarAtas()">
-          <mat-icon class="mb-3">add</mat-icon>
-        </button>
-
-        <ng-template #ata [formGroup]="ataForm">
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Ingrese un nueva ATA</mat-label>
-              <input matInput placeholder="ATA" formControlName="ata" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>CUIT</mat-label>
-              <input matInput placeholder="Ingrese CUIT" formControlName="cuit" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <div>
-            <button mat-raised-button (click)="crearAta()" class="mr-3 btn-verde">Crear</button>
-          </div>
-        </ng-template>
+        
 
         <!--Permiso embarque-->
         
@@ -430,6 +461,11 @@
     </div>
   </div>
 </div>
+
+<div class="btn-registrar">
+  <button mat-raised-button (click)="register()" class="mr-3 btn-verde">Crear</button>
+</div>
+
 
 <div class="row">
   <div class="col-md-10">
@@ -469,7 +505,7 @@
   </div>
 </div>
 
-<button mat-raised-button (click)="register()" class="mr-3 btn-verde">Crear</button>
+
 
 
 

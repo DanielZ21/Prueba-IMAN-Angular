@@ -21,6 +21,7 @@ th.mat-sort-header-sorted {
 
 #lectorBalanza{
     background-color: rgb(0, 0, 0);
+    text-align: justify;
     
 }
 
@@ -36,4 +37,13 @@ th.mat-sort-header-sorted {
 
 .add{
     justify-content: baseline;
+}
+
+mat-form-field{
+    width: 180px;
+}
+
+.btn-registrar{
+    margin-top: 5px;
+    margin-left: 80px;
 }

@@ -665,6 +665,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
       );
 
     } else {
+      console.log(this.registerForm.value);
       console.log('Registro inválido');
         Toast.fire({
           icon: 'error',
