@@ -33,3 +33,7 @@ th.mat-sort-header-sorted {
 #requerido{
     color: blue;
 }
+
+.add{
+    justify-content: baseline;
+}

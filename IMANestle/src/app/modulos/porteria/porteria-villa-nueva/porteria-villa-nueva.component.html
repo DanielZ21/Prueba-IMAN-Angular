@@ -51,8 +51,7 @@
         </div>
 
         <!--Tipo artículos-->
-
-        <div>
+        <div class="add">
           <mat-form-field appearance="legacy" *ngIf="tipoArticuloIF;else tipoArticulo">
             <mat-label>Tipo artículo</mat-label>
             <mat-select formControlName="idTipoArticulo" required>
@@ -61,22 +60,23 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTipoArticulos()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
           <mat-error *ngIf="registerForm.get('idTipoArticulo')?.hasError('required')"><p id="requerido">*Campo requerido</p></mat-error>
-        </div>
 
-        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTipoArticulos()">
-          <mat-icon class="mb-3">add</mat-icon>
-        </button>
-  
-        <ng-template #tipoArticulo [formGroup]="tipoArticuloForm">
-          <mat-form-field appearance="fill">
-            <mat-label>Ingrese un nuevo tipo</mat-label>
-            <input matInput placeholder="Ingrese una categoría" formControlName="tipoArticulo" autocomplete="off">
-          </mat-form-field>
-          <div>
-            <button mat-raised-button (click)="crearTipoArticulo()" class="mr-3 btn-verde">Crear</button>
-          </div>
-        </ng-template>
+          <ng-template #tipoArticulo [formGroup]="tipoArticuloForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese un nuevo tipo</mat-label>
+              <input matInput placeholder="Ingrese una categoría" formControlName="tipoArticulo" autocomplete="off">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button (click)="crearTipoArticulo()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+       </div>
+        
+          
 
         
 
