@@ -21,15 +21,15 @@ export class AbmService {
   }
 
   getIngreso(id:number):Observable<any>{
-    return this.http.get(API_ROUTES.INGRESO_FABRICA_TB.GET_INGRESO_FABRICA)
+    return this.http.get(API_ROUTES.INGRESO_FABRICA_TB.GET_INGRESO_FABRICA + id)
   }
 
   postIngreso(data:any):Observable<any>{
     return this.http.post(API_ROUTES.INGRESO_FABRICA_TB.POST_INGRESO_FABRICA, data);
   }
 
-  getPesoActual(id : number):Observable<any>{
-    return this.http.get(API_ROUTES.INGRESO_FABRICA_TB.GET_PESO_ACTUAL);
+  getPesoActual(idBalanza : number):Observable<any>{
+    return this.http.get(API_ROUTES.INGRESO_FABRICA_TB.GET_PESO_ACTUAL + idBalanza);
   }
 
   /*------------MADCAP---------------*/
@@ -53,7 +53,7 @@ export class AbmService {
   }
 
   getOneTransportista(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.TRANSPORTISTA.GET_ONE_TRANSPORTISTA)
+    return this.http.get(API_ROUTES.TRANSPORTISTA.GET_ONE_TRANSPORTISTA + id)
   }
 
   postTransportista(data:any):Observable<any>{
@@ -61,7 +61,7 @@ export class AbmService {
   }
 
   deleteTransportista(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.TRANSPORTISTA.DELETE_TRANSPORTISTA)
+    return this.http.delete(API_ROUTES.TRANSPORTISTA.DELETE_TRANSPORTISTA + id)
   }
 
   /*------------ATA---------------*/
@@ -71,7 +71,7 @@ export class AbmService {
   }
 
   getOneAta(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.ATA.GET_ONE_ATA)
+    return this.http.get(API_ROUTES.ATA.GET_ONE_ATA + id)
   }
 
   postAta(data:any):Observable<any>{
@@ -79,7 +79,7 @@ export class AbmService {
   }
 
   deleteAta(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.ATA.DELETE_ATA)
+    return this.http.delete(API_ROUTES.ATA.DELETE_ATA + id)
   }
 
   /*------------CHOFER---------------*/
@@ -89,7 +89,7 @@ export class AbmService {
   }
 
   getOneChofer(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.CHOFER.GET_ONE_CHOFER);
+    return this.http.get(API_ROUTES.CHOFER.GET_ONE_CHOFER + id);
   }
 
   postChofer(data:any):Observable<any>{
@@ -97,7 +97,7 @@ export class AbmService {
   }
 
   deleteChofer(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.CHOFER.DELETE_CHOFER)
+    return this.http.delete(API_ROUTES.CHOFER.DELETE_CHOFER + id)
   }
 
   /*------------CLIENTE---------------*/
@@ -107,7 +107,7 @@ export class AbmService {
   }
 
   getOneCliente(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.CLIENTE.GET_ONE_CLIENTE);
+    return this.http.get(API_ROUTES.CLIENTE.GET_ONE_CLIENTE + id);
   }
 
   postliente(data:any):Observable<any>{
@@ -115,7 +115,7 @@ export class AbmService {
   }
 
   deleteCliente(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.CLIENTE.DELETE_CLIENTE)
+    return this.http.delete(API_ROUTES.CLIENTE.DELETE_CLIENTE + id)
   }
 
   /*------------DESTINO---------------*/
@@ -125,7 +125,7 @@ export class AbmService {
   }
 
   getOneDestino(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.DESTINO.GET_ONE_DESTINO);
+    return this.http.get(API_ROUTES.DESTINO.GET_ONE_DESTINO + id);
   }
 
   postDestino(data:any):Observable<any>{
@@ -133,7 +133,7 @@ export class AbmService {
   }
 
   deleteDestino(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.DESTINO.DELETE_DESTINO)
+    return this.http.delete(API_ROUTES.DESTINO.DELETE_DESTINO + id)
   }
 
   /*------------EXPORTADOR---------------*/
@@ -143,7 +143,7 @@ export class AbmService {
   }
 
   getOneExportador(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.EXPORTADOR.GET_ONE_EXPORTADOR);
+    return this.http.get(API_ROUTES.EXPORTADOR.GET_ONE_EXPORTADOR + id);
   }
 
   postExportador(data:any):Observable<any>{
@@ -151,7 +151,7 @@ export class AbmService {
   }
 
   deleteExportador(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.EXPORTADOR.DELETE_EXPORTADOR)
+    return this.http.delete(API_ROUTES.EXPORTADOR.DELETE_EXPORTADOR + id)
   }
 
   /*------------NACIONALIDAD---------------*/
@@ -161,7 +161,7 @@ export class AbmService {
   }
 
   getOneNacionalidad(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.NACIONALIDAD.GET_ONE_NACIONALIDAD)
+    return this.http.get(API_ROUTES.NACIONALIDAD.GET_ONE_NACIONALIDAD + id)
   }
 
   postNacionalidad(data:any):Observable<any>{
@@ -169,7 +169,7 @@ export class AbmService {
   }
 
   deleteNacionalidad(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.NACIONALIDAD.DELETE_NACIONALIDAD)
+    return this.http.delete(API_ROUTES.NACIONALIDAD.DELETE_NACIONALIDAD + id)
   }
 
   /*------------PATENTE---------------*/
@@ -179,7 +179,7 @@ export class AbmService {
   }
 
   getOnePatente(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.PATENTE.GET_ONE_PATENTE)
+    return this.http.get(API_ROUTES.PATENTE.GET_ONE_PATENTE + id)
   }
 
   postPatente(data:any):Observable<any>{
@@ -187,7 +187,7 @@ export class AbmService {
   }
 
   deletePatente(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.PATENTE.DELETE_PATENTE)
+    return this.http.delete(API_ROUTES.PATENTE.DELETE_PATENTE + id)
   }
 
   /*------------REMITO---------------*/
@@ -197,7 +197,7 @@ export class AbmService {
   }
 
   getOneRemito(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.REMITO.GET_ONE_REMITO)
+    return this.http.get(API_ROUTES.REMITO.GET_ONE_REMITO + id)
   }
 
   postRemito(data:any):Observable<any>{
@@ -205,7 +205,7 @@ export class AbmService {
   }
 
   deleteRemito(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.REMITO.DELETE_REMITO)
+    return this.http.delete(API_ROUTES.REMITO.DELETE_REMITO + id)
   }
 
   /*------------TIPO ARTICULO---------------*/
@@ -215,15 +215,15 @@ export class AbmService {
   }
 
   getOneTipoArticulo(id: number):Observable<any>{
-    return this.http.get(API_ROUTES.TIPO_ARTICULO.GET_ONE_TIPO_ARTICULO)
+    return this.http.get(API_ROUTES.TIPO_ARTICULO.GET_ONE_TIPO_ARTICULO + id)
   }
 
   postTipoArticulo(data:any):Observable<any>{
     return this.http.post(API_ROUTES.TIPO_ARTICULO.POST_TIPO_ARTICULO, data)
   }
 
-  deleteTipoArticulo(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.TIPO_ARTICULO.DELETE_TIPO_ARTICULO)
+  deleteTipoArticulo(TipoArticuloId:number):Observable<any>{
+    return this.http.delete(API_ROUTES.TIPO_ARTICULO.DELETE_TIPO_ARTICULO + TipoArticuloId)
   }
 
 }

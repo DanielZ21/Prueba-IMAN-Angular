@@ -15,7 +15,7 @@ export const API_ROUTES= {
         GET_NUEVO_INGRESO_FABRICA: `${ENV.apiUrl}Negocio/IngresoFabricaTB/NuevoIngresoFabrica`,
         GET_INGRESO_FABRICA: `${ENV.apiUrl}Negocio/IngresoFabricaTB/GetIngresoFabrica`,
         POST_INGRESO_FABRICA: `${ENV.apiUrl}Negocio/IngresoFabricaTB/PostIngresoFabrica`,
-        GET_PESO_ACTUAL: `${ENV.apiUrl}Negocio/IngresoFabricaTB/GetPesoActual`,
+        GET_PESO_ACTUAL: `${ENV.apiUrl}Negocio/IngresoFabricaTB/GetPesoActual?idBalanza=`,
     },             
     
 
@@ -114,7 +114,7 @@ export const API_ROUTES= {
         GET_ALL_TIPO_ARTICULOS: `${ENV.apiUrl}Negocio/TipoArticulo/GetAllTipoArticulos`,
         GET_ONE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/TipoArticulo/GetOneTipoArticulo`,
         POST_TIPO_ARTICULO: `${ENV.apiUrl}Negocio/TipoArticulo/PostTipoArticulo`,
-        DELETE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio​/TipoArticulo/DeleteTipoArticulo`,
+        DELETE_TIPO_ARTICULO: `${ENV.apiUrl}Negocio/TipoArticulo/DeleteTipoArticulo?TipoArticuloId=`,
     },
 
 }
