@@ -174,7 +174,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
   */
 
   accion = 'Agregar';
-  id = 0;
+  IdIingreso = 0;
 
   
   constructor(private fb: FormBuilder, private abmService: AbmService, private activeRouter: ActivatedRoute, private router: Router){
@@ -190,7 +190,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
       this.getChoferes();
       this.getExportadores();
       this.getPeso();
-      this.id = +this.activeRouter.snapshot.paramMap.get('id')!;
+      this.IdIingreso = +this.activeRouter.snapshot.paramMap.get('id')!;
            
   }
 
@@ -202,32 +202,35 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
 
 
   editarIngreso(){
-    if(this.id !== 0) {
+    if(this.IdIingreso !== 0) {
+      console.log('Por editar')
       this.accion = 'Editar';
-      this.abmService.getIngreso(this.id).subscribe(data => {
+      this.abmService.getIngreso(this.IdIingreso).subscribe(data => {
+        console.log('editable',data)
+        console.log('ingreso', data.ingresoFabricaTB.patente1)
         this.ingresoFabricaTB = data;
         this.registerForm.patchValue({
-          ingreso: data.ingreso,
-          salida: data.salida,
-          idTipoArticulo: data.idTipoArticulo,
-          idTransportista: data.idTransportista,
-          patente1: data.patente1,
-          patente2: data.patente2,
-          ing: data.ing,
-          bruto: data.bruto,
-          tara: data.tara,
-          dni: data.dni,
-          observaciones: data.observaciones,
-          idNacionalidad: data.idNacionalidad,
-          idClienteExportador: data.idClienteExportador,
-          idDestino: data.idDestino,
-          idRemito: data.idRemito,
-          chofer: data.chofer,
-          entrada: data.entrada,
-          taraSalida: data.taraSalida,
-          nroContenedor: data.nroContenedor,
-          idATA: data.idATA,
-          nroPermisoEmbarque: data.nroPermisoEmbarque,
+          ingreso: data.ingresoFabricaTB.ingreso,
+          salida: data.ingresoFabricaTB.salida,
+          idTipoArticulo: data.ingresoFabricaTB.idTipoArticulo,
+          idTransportista: data.ingresoFabricaTB.idTransportista,
+          patente1: data.ingresoFabricaTB.patente1,
+          patente2: data.ingresoFabricaTB.patente2,
+          ing: data.ingresoFabricaTB.ing,
+          bruto: data.ingresoFabricaTB.bruto,
+          tara: data.ingresoFabricaTB.tara,
+          dni: data.ingresoFabricaTB.dni,
+          observaciones: data.ingresoFabricaTB.observaciones,
+          idNacionalidad: data.ingresoFabricaTB.idNacionalidad,
+          idClienteExportador: data.ingresoFabricaTB.idClienteExportador,
+          idDestino: data.ingresoFabricaTB.idDestino,
+          idRemito: data.ingresoFabricaTB.idRemito,
+          chofer: data.ingresoFabricaTB.chofer,
+          entrada: data.ingresoFabricaTB.entrada,
+          taraSalida: data.ingresoFabricaTB.taraSalida,
+          nroContenedor: data.ingresoFabricaTB.nroContenedor,
+          idATA: data.ingresoFabricaTB.idATA,
+          nroPermisoEmbarque: data.ingresoFabricaTB.nroPermisoEmbarque,
         })
       }, error => {
         console.log(error);
