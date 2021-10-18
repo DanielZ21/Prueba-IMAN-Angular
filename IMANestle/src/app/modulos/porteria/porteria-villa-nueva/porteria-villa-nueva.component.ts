@@ -76,7 +76,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
     ing: [1,[Validators.required]],
     bruto: [,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
     tara: [,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-    dni: [,[Validators.required]],
+    dni: [,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
     observaciones: [,[Validators.required]],
     idNacionalidad: [,[Validators.required]],
     idClienteExportador: [,[Validators.required]],
@@ -84,8 +84,8 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
     idRemito: [,[Validators.required]],
     chofer: [,[Validators.required]],
     entrada: [,[Validators.required]],
-    taraSalida: [,[Validators.required]],
-    nroContenedor: [,[Validators.required]],
+    taraSalida: [,[Validators.required,Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+    nroContenedor: [,[Validators.required,Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
     idATA: [,[Validators.required]],
     nroPermisoEmbarque: [,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
   });
@@ -207,7 +207,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
       this.accion = 'Editar';
       this.abmService.getIngreso(this.IdIingreso).subscribe(data => {
         console.log('editable',data)
-        console.log('ingreso', data.ingresoFabricaTB.patente1)
+        console.log('ingreso', data.ingresoFabricaTB.entrada)
         this.ingresoFabricaTB = data;
         this.registerForm.patchValue({
           ingreso: data.ingresoFabricaTB.ingreso,
