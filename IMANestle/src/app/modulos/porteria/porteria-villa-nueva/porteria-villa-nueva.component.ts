@@ -191,8 +191,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
       this.getExportadores();
       this.getPeso();
       this.id = +this.activeRouter.snapshot.paramMap.get('id')!;
-      this.editarIngreso();
-      
+           
   }
 
   ngOnInit(): void {
@@ -236,6 +235,9 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
     }
    
   }
+
+  
+
 
 
   /*
