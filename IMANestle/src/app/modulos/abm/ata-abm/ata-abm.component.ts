@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ListaTipoArticulo } from 'src/app/models/IngresoFabricaTB';
+import { ListaATA, ListaTipoArticulo } from 'src/app/models/IngresoFabricaTB';
 import { AbmService } from 'src/app/_services/abm.service';
 import Swal from 'sweetalert2';
 
@@ -14,9 +14,9 @@ import Swal from 'sweetalert2';
 })
 export class AtaAbmComponent implements AfterViewInit {
 
-  public listaTipoArticulos!: ListaTipoArticulo[];
+  public listaTipoArticulos!: ListaATA[];
   dataSource!: MatTableDataSource<ListaTipoArticulo>;
-  displayedColumns: string[] = ['tipoArticulo', 'editar'];
+  displayedColumns: string[] = ['Ata', 'cuit', 'editar'];
   cargando: boolean = false;
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -33,7 +33,7 @@ export class AtaAbmComponent implements AfterViewInit {
     //this.dataSource=null;
 
     this.cargando = true;
-    this.abmService.getAllTipoArticulos().subscribe(r => {
+    this.abmService.getAllAtas().subscribe(r => {
       console.log(r);
       this.dataSource = new MatTableDataSource(r);
       this.configTable();
@@ -48,7 +48,7 @@ export class AtaAbmComponent implements AfterViewInit {
     this.dataSource.sort = this.sort!;
   }  
 
-  deleteTipoArticulo(TipoArticuloId:number){
+  deleteATA(TipoArticuloId:number){
 
     const Toast = Swal.mixin({ //Declaro el mixin de sweet alert 2
       toast: true,
@@ -80,7 +80,7 @@ export class AtaAbmComponent implements AfterViewInit {
               console.log('Edición realizada con éxito!');
               Toast.fire({
                 icon: 'success',
-                title: 'Neumático borrado con éxito'
+                title: 'ATA borrada con éxito'
               });
               this.getTipoArtioculos();
             },

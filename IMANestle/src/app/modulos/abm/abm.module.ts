@@ -18,8 +18,8 @@ import { TipoArticuloAbmComponent } from './tipo-articulo-abm/tipo-articulo-abm.
     MaterialModule
   ],
   exports: [
-    AtaAbmComponent
-
+    AtaAbmComponent,
+    TipoArticuloAbmComponent
   ]
     
   

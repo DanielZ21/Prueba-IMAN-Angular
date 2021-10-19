@@ -3,8 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+import { map, startWith, switchMap, timeInterval } from 'rxjs/operators';
+import { interval } from 'rxjs';
 import { IngresoFabricaTB, ListaATA, ListaChofere, ListaCliente, ListaDestino, ListaExportadore, ListaNacionalidade, ListaPatentes, ListaRemito, ListaTipoArticulo, ListaTransportista, } from 'src/app/models/IngresoFabricaTB';
 import { AbmService } from 'src/app/_services/abm.service';
 import Swal from 'sweetalert2';
@@ -189,13 +190,24 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
       this.getPatentesAcoplado();
       this.getChoferes();
       this.getExportadores();
-      this.getPeso();
+      //this.getPeso();
       this.IdIingreso = +this.activeRouter.snapshot.paramMap.get('id')!;
            
   }
 
+  timeInterval!: Subscription;
+  
+
   ngOnInit(): void {
     this.editarIngreso();
+
+    //POLLING PARA OBTENER EL PESO DE LA BALANZA.
+    this.timeInterval = interval(3000)
+    .pipe(
+      startWith(0),
+      switchMap(() => this.abmService.getPesoActual(1))
+    ).subscribe(r => this.peso = r,
+      error => console.log(error));
   }
 
 
@@ -682,12 +694,14 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
 
   /*--------Obtener peso de balanza--------*/ 
 
+  /*
   getPeso(){
     this.abmService.getPesoActual(1).subscribe(r => {
       console.log(r);
       this.peso = r
     });
   }
+  */
 
   /*-------Listas para los selects-------*/
 
