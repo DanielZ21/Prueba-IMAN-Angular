@@ -39,37 +39,37 @@ export const API_ROUTES= {
     /* ---------- APIS ATAS ------------*/
 
     ATA: {
-        GET_ALL_ATAS: `${ENV.apiUrl}Negocio​/Ata​/GetAllAtas`,
+        GET_ALL_ATAS: `${ENV.apiUrl}Negocio/Ata/GetAllAtas`,
         GET_ONE_ATA: `${ENV.apiUrl}Negocio​/Ata​/GetOneATA`,
         POST_ATA: `${ENV.apiUrl}Negocio/Ata/PostATA`,
-        DELETE_ATA: `${ENV.apiUrl}Negocio​/Ata​/DeleteATA`,
+        DELETE_ATA: `${ENV.apiUrl}Negocio/Ata/DeleteATA?ATAId=`,
     },
 
     /* ---------- APIS CHOFERES ------------*/
 
     CHOFER: {
-        GET_ALL_CHOFERES: `${ENV.apiUrl}Negocio​/Chofer​/GetAllChoferes`,
+        GET_ALL_CHOFERES: `${ENV.apiUrl}Negocio/Chofer/GetAllChoferes`,
         GET_ONE_CHOFER: `${ENV.apiUrl}Negocio​/Chofer​/GetOneChofer`,
         POST_CHOFER: `${ENV.apiUrl}Negocio/Chofer/PostChofer`,
-        DELETE_CHOFER: `${ENV.apiUrl}Negocio​/Chofer​/DeleteChofer`
+        DELETE_CHOFER: `${ENV.apiUrl}Negocio/Chofer/DeleteChofer?ChoferId=1`
     },
 
      /* ---------- APIS CLIENTES ------------*/
 
     CLIENTE: {
-        GET_ALL_CLIENTES: `${ENV.apiUrl}Negocio​/Cliente/GetAllCliente`,
+        GET_ALL_CLIENTES: `${ENV.apiUrl}Negocio/Cliente/GetAllCliente`,
         GET_ONE_CLIENTE: `${ENV.apiUrl}Negocio​/Cliente/GetOneCliente`,
         POST_CLIENTE: `${ENV.apiUrl}Negocio​/Cliente/PostCliente`,
-        DELETE_CLIENTE: `${ENV.apiUrl}Negocio​/Cliente/DeleteCliente`
+        DELETE_CLIENTE: `${ENV.apiUrl}Negocio/Cliente/DeleteCliente?ClienteId=`
     },
 
     /* ---------- APIS DESTINOS ------------*/
 
     DESTINO: {
-        GET_ALL_DESTINOS: `${ENV.apiUrl}Negocio​/Destino/GetAllDestinos`,
+        GET_ALL_DESTINOS: `${ENV.apiUrl}Negocio/Destino/GetAllDestinos`,
         GET_ONE_DESTINO: `${ENV.apiUrl}Negocio​/Destino/GetOneDestino`,
         POST_DESTINO: `${ENV.apiUrl}Negocio/Destino/PostDestino`,
-        DELETE_DESTINO: `${ENV.apiUrl}Negocio​/Destino/DeleteDestino`,
+        DELETE_DESTINO: `${ENV.apiUrl}Negocio/Destino/DeleteDestino?DestinoId=`,
     },
 
     /* ---------- APIS EXPORTADORES ------------*/

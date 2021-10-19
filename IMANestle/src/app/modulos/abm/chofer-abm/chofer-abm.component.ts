@@ -2,21 +2,19 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ListaATA } from 'src/app/models/IngresoFabricaTB';
+import { ListaChofere } from 'src/app/models/IngresoFabricaTB';
 import { AbmService } from 'src/app/_services/abm.service';
 import Swal from 'sweetalert2';
 
-
 @Component({
-  selector: 'app-ata-abm',
-  templateUrl: './ata-abm.component.html',
-  styleUrls: ['./ata-abm.component.css']
+  selector: 'app-chofer-abm',
+  templateUrl: './chofer-abm.component.html',
+  styleUrls: ['./chofer-abm.component.css']
 })
-export class AtaAbmComponent implements AfterViewInit {
+export class ChoferAbmComponent implements AfterViewInit  {
 
-  dataSource!: MatTableDataSource<ListaATA>;
-  displayedColumns: string[] = ['ata', 'cuit','editar'];
-  
+  dataSource!: MatTableDataSource<ListaChofere>;
+  displayedColumns: string[] = ['chofer','editar'];
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -25,12 +23,12 @@ export class AtaAbmComponent implements AfterViewInit {
   }
 
   constructor(private abmService: AbmService, private router: Router){
-    this.getAtas();
+    this.getChoferes();
   }
 
-  getAtas():void{
+  getChoferes():void{
   
-    this.abmService.getAllAtas().subscribe(r => {
+    this.abmService.getAllChofere().subscribe(r => {
       console.log(r);
       this.dataSource = new MatTableDataSource(r);
       this.configTable();
@@ -44,7 +42,7 @@ export class AtaAbmComponent implements AfterViewInit {
     this.dataSource.sort = this.sort!;
   }  
 
-  deleteATA(ATAId:number){
+  deleteATA(ChoferId:number){
 
     const Toast = Swal.mixin({ //Declaro el mixin de sweet alert 2
       toast: true,
@@ -60,7 +58,7 @@ export class AtaAbmComponent implements AfterViewInit {
     
       Swal.fire({
         title: 'Esta a punto de borrar este item',
-        text: '¿Seguro desea borrar esta ATA?',
+        text: '¿Seguro desea borrar este chofer?',
         icon: 'warning',
         confirmButtonText: 'Aceptar',
         confirmButtonColor:'#28a745',
@@ -69,16 +67,16 @@ export class AtaAbmComponent implements AfterViewInit {
         cancelButtonColor:'#dc3545',
       }).then((result) => {
         if (result.isConfirmed) {
-          this.abmService.deleteAta(ATAId)
+          this.abmService.deleteChofer(ChoferId)
             .subscribe(
             (data) => {
               console.log(data);
               console.log('Edición realizada con éxito!');
               Toast.fire({
                 icon: 'success',
-                title: 'ATA borrada con éxito'
+                title: 'Chofer borrada con éxito'
               });
-              this.getAtas();
+              this.getChoferes();
             },
             (error) => {
               console.log(error);
@@ -92,6 +90,5 @@ export class AtaAbmComponent implements AfterViewInit {
     )
         console.log("Registro borrado");
     }
-
 
 }
