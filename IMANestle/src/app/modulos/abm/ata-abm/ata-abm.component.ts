@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ATA } from 'src/app/models/Ata';
 import { ListaATA } from 'src/app/models/IngresoFabricaTB';
 import { AbmService } from 'src/app/_services/abm.service';
 import Swal from 'sweetalert2';
@@ -16,8 +17,9 @@ import Swal from 'sweetalert2';
 export class AtaAbmComponent implements AfterViewInit {
 
   dataSource!: MatTableDataSource<ListaATA>;
-  displayedColumns: string[] = ['ata', 'cuit','editar'];
+  displayedColumns: string[] = ['ata', 'cuit','editar','eliminar'];
   
+  ata!: ATA
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -25,9 +27,10 @@ export class AtaAbmComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  formGroup!: FormGroup;
   ataIF: boolean = true;
 
-  ataForm: FormGroup = this.fb.group({
+  ataForm1: FormGroup = this.fb.group({
     id: [0],
     ata: [,[Validators.required]],
     cuit: [,[Validators.required]],
@@ -118,9 +121,9 @@ export class AtaAbmComponent implements AfterViewInit {
     
     console.log('registrar');
 
-    if(this.ataForm.valid){
-      console.log(this.ataForm.value);
-      this.abmService.postAta(this.ataForm.value)
+    if(this.ataForm1.valid){
+      console.log(this.ataForm1.value);
+      this.abmService.postAta(this.ataForm1.value)
       .subscribe(
         (data) => {
           Toast.fire({
@@ -129,6 +132,7 @@ export class AtaAbmComponent implements AfterViewInit {
           });
           this.ataIF = true;
           this.getAtas();
+          this.ataForm1.reset();
         },
         (error) => {
           console.log(error);
@@ -140,19 +144,35 @@ export class AtaAbmComponent implements AfterViewInit {
       );
 
     } else {
-      console.log(this.ataForm.value)
+      console.log(this.ataForm1.value)
       console.log('Registro inválido');
         Toast.fire({
           icon: 'error',
           title: 'Error: Verifique los campos ingresados',
         });
-        this.ataForm.reset();
+        this.ataForm1.reset();
     }
   }
 
   mostrarAtas(){
     this.ataIF = !this.ataIF;
-    this.ataForm.get('idTransportista')?.reset('');
+    this.ataForm1.get('idATA')?.reset('');
+  }
+
+  
+  editarAta(ATAId:number){
+    this.ataIF = false;
+    this.abmService.getOneAta(ATAId).subscribe(data => {
+      console.log('editable',data)
+      this.ata = data;
+      this.ataForm1.patchValue({
+        ata: data.ata,
+        cuit: data.cuit
+      })
+    }, error => {
+      console.log(error);
+    })
+
   }
 
 

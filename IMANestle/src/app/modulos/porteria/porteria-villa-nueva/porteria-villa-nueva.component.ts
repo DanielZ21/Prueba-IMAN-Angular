@@ -140,40 +140,6 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
     cuit: [,[Validators.required]],
   });
 
-
-  
-  /*
-  ngOnInit(){
-    this.initForm();
-    this.getNames();
-  }
-
-  initForm(){
-    this.formGroup = this.fb.group({
-      'tipoArticulo' : ['']
-    })
-    this.formGroup.get('tipoArticulo')?.valueChanges.subscribe(response => {
-      console.log('data is ', response);
-      this.filterData(response);
-    })
-  }
-
-  filterData(enteredData: any){
-    this.listaTipoArticulos = this.listaTipoArticulos.filter((listaTipoArticulos) => {
-      return this.listaTipoArticulos
-      
-      //.toLowerCase().indexOf(enteredData.toLowerCase()) > -1
-    })
-  }
-
-  getNames(){
-    this.abmService.getNuevoIngreso().subscribe(response => {
-      this.options = response;
-      this.filteredOptions = response;
-    })
-  }
-  */
-
   accion = 'Agregar';
   IdIingreso = 0;
 
