@@ -13,6 +13,7 @@ import { IApiError } from 'src/app/models/apí/iapi-error.metadata';
 import { JwtHelperService } from '@auth0/angular-jwt'
 import { CookieService } from 'ngx-cookie-service';
 import { INTERNAL_ROUTES } from 'src/data/route/internal.routes';
+import Swal from 'sweetalert2';
 
 const helper = new JwtHelperService();
 
@@ -49,16 +50,32 @@ export class AuthService {
     return this.isUserLoggedIn.asObservable();
   }
 
+ 
   login(data: any) {
+   
+    const Toast = Swal.mixin({
+      //Declaro el mixin de sweet alert 2
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+    
     return this.http
-    .post<string>(API_ROUTES.AUTH.LOGIN,data)
+    .post(API_ROUTES.AUTH.LOGIN,data)
       .subscribe(
         r => {
-
+          
         },e => {
+          
           e.error.text;
-          console.log(data)
-          const response = e.error.text;
+          console.log(data);
+          const r = e.error.text;
           console.log('e.error.text ->', e.error.text);
              //   console.log('e.error.text -> Lo hago verdadero');
             this.isUserLoggedIn.next(true);
@@ -78,11 +95,21 @@ export class AuthService {
             this.cookieService.delete(this.nameUserLS);
           }
           this.cookieService.check('token');
-          return e.error.text, this.router.navigateByUrl('/porteria');
+          if(e.error.text == undefined){
+            return Toast.fire({
+              icon: 'error',
+              title: 'Inicio de sesión incorrecto',
+            }); 
+          } else {
+            return e.error.text, this.router.navigateByUrl('/porteria');
+          }
+          
           
         }
       )
       
+      
+
      /* 
      
      CON COOKIES
