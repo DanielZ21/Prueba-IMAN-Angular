@@ -79,7 +79,7 @@ export class AbmService {
   }
 
   deleteAta(id:number):Observable<any>{
-    return this.http.delete(API_ROUTES.ATA.DELETE_ATA + id)
+    return this.http.get(API_ROUTES.ATA.DELETE_ATA + id)
   }
 
   /*------------CHOFER---------------*/

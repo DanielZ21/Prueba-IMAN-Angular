@@ -40,7 +40,7 @@ export const API_ROUTES= {
 
     ATA: {
         GET_ALL_ATAS: `${ENV.apiUrl}Negocio/Ata/GetAllAtas`,
-        GET_ONE_ATA: `${ENV.apiUrl}Negocio​/Ata​/GetOneATA`,
+        GET_ONE_ATA: `${ENV.apiUrl}Negocio/Ata/GetOneATA?ATAId=`,
         POST_ATA: `${ENV.apiUrl}Negocio/Ata/PostATA`,
         DELETE_ATA: `${ENV.apiUrl}Negocio/Ata/DeleteATA?ATAId=`,
     },
