@@ -188,6 +188,7 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
         console.log('ingreso', data.ingresoFabricaTB.entrada)
         this.ingresoFabricaTB = data;
         this.registerForm.patchValue({
+          id: data.id,
           ingreso: data.ingresoFabricaTB.ingreso,
           salida: data.ingresoFabricaTB.salida,
           idTipoArticulo: data.ingresoFabricaTB.idTipoArticulo,
