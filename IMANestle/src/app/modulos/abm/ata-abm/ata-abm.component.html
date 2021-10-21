@@ -1,0 +1,69 @@
+<div>
+  <div *ngIf="ataIF;else ata">
+    <h1>Agregar ATA</h1>
+  </div>
+  <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarAtas()">
+    <mat-icon class="mb-3">add</mat-icon>
+  </button>
+
+  <ng-template #ata [formGroup]="ataForm1">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Ingrese un nueva ATA</mat-label>
+        <input matInput placeholder="ATA" formControlName="ata" autocomplete="off">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>CUIT</mat-label>
+        <input matInput placeholder="Ingrese CUIT" formControlName="cuit" autocomplete="off">
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button (click)="crearAta()" class="mr-3 btn-verde">Crear</button>
+    </div>
+  </ng-template>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="card">
+        <div class="card-body">
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="ata">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ATA </th>
+              <td mat-cell *matCellDef="let element"> {{element.ata}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cuit">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> CUIT </th>
+              <td mat-cell *matCellDef="let element"> {{element.cuit}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="editar">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+              <td mat-cell *matCellDef="let element"><button (click)="editarAta(element.id)"
+                  class="btn btn-blue btn-sm float-end">Editar</button></td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="eliminar">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+              <td mat-cell *matCellDef="let element"><button (click)="deleteATA(element.id)"
+                  class="btn btn-danger btn-sm float-end">Eliminar</button></td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

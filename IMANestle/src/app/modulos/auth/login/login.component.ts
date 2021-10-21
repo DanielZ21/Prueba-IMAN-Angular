@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -36,7 +37,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   ]
 })
 export class LoginComponent {
-  [x: string]: any;
+  
   loginForm: FormGroup;
   forgotPasswordForm: FormGroup;
 
@@ -61,10 +62,53 @@ export class LoginComponent {
 
   }
 
-  
-  
-  
   login(): void {
+    const Toast = Swal.mixin({
+      //Declaro el mixin de sweet alert 2
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+
+    if (this.loginForm.valid) {
+      this.error = false;
+      this.cargando = true;
+      console.log(this.loginForm.value);
+      this.authService.login(this.loginForm.value);
+      
+      /*     .subscribe(
+          (r) => {
+            this.cargando = false;
+            this.error = false;
+            console.log('Respuesta')
+            console.log(r);
+            this.router.navigateByUrl('/abm')
+          }, (e) => {
+            console.log('Error')
+            console.log(e)
+            this.cargando = false;
+            this.error = true;
+            this.mensajeError = e;
+          }
+        ); */
+        
+    }  else {
+      this.error = true;
+      this.mensajeError = "¡Los campos no pueden estar vacíos!";
+    }
+  }
+  
+
+  /*
+  login(): void {
+    
     if (this.loginForm.invalid) {
       this.error = true;
       this.mensajeError = "¡Los campos no pueden estar vacíos!";
@@ -89,6 +133,7 @@ export class LoginComponent {
         } 
       },
       */
+     /*
       (error: any) => {
         this.cargando = false;
         this.error = true;
@@ -98,7 +143,7 @@ export class LoginComponent {
     
     }
   }
-  
+  */
   
 
   forgotPassword() {

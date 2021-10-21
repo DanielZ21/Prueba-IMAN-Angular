@@ -4,6 +4,29 @@
   </div>
 </div>
 
+<!--
+<div class="container">
+  
+  <form [formGroup]="formGroup">
+    <mat-form-field>
+      <mat-label>
+        Employee
+      </mat-label>
+      <input formControlName="tipoArticulo" matInput type="text" [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let item of listaTipoArticulos"  [value]="item.tipoArticulo">
+          {{item.tipoArticulo}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+</div>
+-->
+
+
+
+
 <div class="container">
   <div [formGroup]="registerForm">
     <div class="row">
@@ -26,24 +49,47 @@
             <input matInput formControlName="salida" />
           </mat-form-field>
         </div>
+        
 
         <!--Tipo artículos-->
-
-        <div>
-          <mat-form-field appearance="legacy">
+        <div class="add">
+          <mat-form-field appearance="legacy" *ngIf="tipoArticuloIF;else tipoArticulo">
             <mat-label>Tipo artículo</mat-label>
-            <mat-select formControlName="idTipoArticulo">
+            <mat-select formControlName="idTipoArticulo" required>
               <mat-option *ngFor= "let i of listaTipoArticulos" [value]="i.id">
                  {{i.tipoArticulo}}
               </mat-option>
             </mat-select>
           </mat-form-field>
-        </div>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTipoArticulos()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+
+          <mat-error class="text-danger" *ngIf="registerForm.get('idTipoArticulo')?.invalid && registerForm.get('idTipoArticulo')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+
+          
+
+          <ng-template #tipoArticulo [formGroup]="tipoArticuloForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese un nuevo tipo</mat-label>
+              <input matInput placeholder="Ingrese una categoría" formControlName="tipoArticulo" autocomplete="off">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button (click)="crearTipoArticulo()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+       </div>
+        
+          
+
+        
 
         <!--Transportistas-->
 
-        <div>
-          <mat-form-field appearance="legacy">
+        <div class="add">
+          <mat-form-field appearance="legacy" *ngIf="transportistaIF;else transportista">
             <mat-label>Transportista</mat-label>
             <mat-select formControlName="idTransportista">
               <mat-option *ngFor= "let i of listaTransportistas" [value]="i.id">
@@ -51,12 +97,34 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarTransportistas()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('idTransportista')?.invalid && registerForm.get('idTransportista')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+        
+
+        
+
+        <ng-template #transportista [formGroup]="transportistaForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nuevo transportista</mat-label>
+            <input matInput placeholder="Ingrese nombre de transportista" formControlName="transportista" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearTransportista()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
+
         </div>
+          
 
         <!--Patente chasis-->
 
-        <div>
-          <mat-form-field appearance="legacy">
+        <div class="add">
+          <mat-form-field appearance="legacy" *ngIf="patenteChasisIF;else patenteChasis">
             <mat-label>Patente Chasis</mat-label>
             <mat-select formControlName="patente1">
               <mat-option *ngFor= "let i of listaPatentesChasis" [value]="i.patente">
@@ -64,7 +132,39 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarPatentes()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('patente1')?.invalid && registerForm.get('patente1')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+        
+
+        
+
+        <ng-template #patenteChasis [formGroup]="patenteChasisForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nueva patente</mat-label>
+            <input matInput placeholder="Ingrese nueva patente de chasis" formControlName="patenteChasis" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearPatente()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
+
         </div>
+      </div>
+
+    
+
+      
+
+
+        
+
+    
+      <div class="col">
 
         <!--Patente acoplado-->
 
@@ -77,15 +177,27 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <mat-error class="text-danger" *ngIf="registerForm.get('patente2')?.invalid && registerForm.get('patente2')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+        
         </div>
 
         <!--Bruto-->
+        
 
         <div>
           <mat-form-field appearance="legacy">
             <mat-label>Bruto</mat-label>
             <input matInput formControlName="bruto" />
           </mat-form-field>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('bruto')?.invalid && registerForm.get('bruto')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+
+          <mat-error *ngIf="registerForm.get('bruto')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--Tara contenedor-->
@@ -95,6 +207,12 @@
             <mat-label>Tara contenedor</mat-label>
             <input matInput formControlName="tara"/>
           </mat-form-field>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('tara')?.invalid && registerForm.get('tara')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+
+          <mat-error *ngIf="registerForm.get('tara')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--DNI chofer-->
@@ -104,6 +222,12 @@
             <mat-label>DNI chofer</mat-label>
             <input matInput formControlName="dni"/>
           </mat-form-field>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('dni')?.invalid && registerForm.get('dni')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+
+          <mat-error *ngIf="registerForm.get('dni')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--Observaciones-->
@@ -115,25 +239,12 @@
           </mat-form-field>
         </div>
       </div>
-
-    
-
-      </div>
-      <div class="col">
-
-
-        
-
-        
-
-        
-
       <div class="col">
 
         <!--Nacionalidad de chofer-->
 
-        <div>
-          <mat-form-field appearance="legacy">
+        <div class="add">
+          <mat-form-field appearance="legacy" *ngIf="nacionalidadIF;else nacionalidad">
             <mat-label>Nac. Chofer</mat-label>
             <mat-select formControlName="idNacionalidad">
               <mat-option *ngFor= "let i of listaNacionalidades" [value]="i.id">
@@ -141,38 +252,113 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarNacionalidades()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('idNacionalidad')?.invalid && registerForm.get('idNacionalidad')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+        
+
+        
+
+        <ng-template #nacionalidad [formGroup]="nacionalidadForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingrese un nueva nacionalidad</mat-label>
+            <input matInput placeholder="Ingrese nueva nacionalidad" formControlName="nacionalidad" autocomplete="off">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button (click)="crearNacionalidad()" class="mr-3 btn-verde">Crear</button>
+          </div>
+        </ng-template>
+
         </div>
+          
 
         <!--CUIT Exportador-->
 
-        <div>
-          <mat-form-field appearance="legacy">
+        <div class="add">
+          <mat-form-field appearance="legacy" *ngIf="exportadorIF;else exportador">
             <mat-label>CUIT Exportador</mat-label>
             <mat-select formControlName="idClienteExportador">
-              <mat-option *ngFor= "let i of listaExportadores" [value]="i.id">
+              <mat-option *ngFor="let i of listaExportadores" [value]="i.id">
                 {{i.exportador}}
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon"
+            (click)="mostrarExportadores()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+         
+          <mat-error class="text-danger" *ngIf="registerForm.get('idClienteExportador')?.invalid && registerForm.get('idClienteExportador')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+        
+        
+        
+          <ng-template #exportador [formGroup]="exportadorForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese un nueva nacionalidad</mat-label>
+              <input matInput placeholder="Ingrese nuevo exportador" formControlName="exportador" autocomplete="off">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button (click)="crearExportador()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+        
         </div>
+          
 
         <!--Origen/Destino-->
 
-        <div>
-          <mat-form-field appearance="legacy">
+        <div class="add">
+          <mat-form-field appearance="legacy" *ngIf="destinoIF;else destino">
             <mat-label>Origen/Destino</mat-label>
             <mat-select formControlName="idDestino">
-              <mat-option *ngFor= "let i of listaDestinos" [value]="i.id">
+              <mat-option *ngFor="let i of listaDestinos" [value]="i.id">
                 {{i.destino}}
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarDestinos()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('idDestino')?.invalid && registerForm.get('idDestino')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+        
+        
+        
+        
+          <ng-template #destino [formGroup]="destinoForm">
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Ingrese un nuevo destino</mat-label>
+                <input matInput placeholder="Destino" formControlName="destino" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Código afip</mat-label>
+                <input matInput placeholder="Ingrese ´código" formControlName="codigoAfip" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <button mat-raised-button (click)="crearDestino()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+        
         </div>
+        
+         
        
         <!--Remito-->
 
         <div>
-          <mat-form-field appearance="legacy">
+          <mat-form-field appearance="legacy" *ngIf="destinoIF;else destino">
             <mat-label>Remito</mat-label>
             <mat-select formControlName="idRemito">
               <mat-option *ngFor= "let i of listaRemitos" [value]="i.id">
@@ -180,26 +366,47 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('idRemito ')?.invalid && registerForm.get('idRemito')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
         </div>
-
-      </div>
-      <div class="col">
 
 
         <!--Chofer-->
 
-        <div>
-          <mat-form-field appearance="legacy">
+        <div class="add">
+          <mat-form-field appearance="legacy" *ngIf="choferIF;else chofer">
             <mat-label>Chofer</mat-label>
             <mat-select formControlName="chofer">
-              <mat-option *ngFor= "let i of listaChoferes" [value]="i.chofer">
-                 {{i.chofer}}
+              <mat-option *ngFor="let i of listaChoferes" [value]="i.chofer">
+                {{i.chofer}}
               </mat-option>
-              
             </mat-select>
           </mat-form-field>
-        </div>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarChoferes()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          <mat-error class="text-danger" *ngIf="registerForm.get('chofer')?.invalid && registerForm.get('chofer')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
         
+        
+        
+        
+          <ng-template #chofer [formGroup]="choferForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese un nuevo chofer</mat-label>
+              <input matInput placeholder="Chofer" formControlName="chofer" autocomplete="off">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button (click)="crearChofer()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+        </div>  
+      </div>
+      <div class="col">
+
         <!--Entrada/Salida-->
         
         <div>
@@ -210,10 +417,11 @@
               <mat-option value="2">Salida</mat-option>
             </mat-select>
           </mat-form-field>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('entrada')?.invalid && registerForm.get('entrada')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
         </div>
-        
-      </div>
-      <div class="col">
         
         <!--Tara salida-->
 
@@ -222,6 +430,12 @@
             <mat-label>Tara de salida</mat-label>
             <input matInput formControlName="taraSalida" />
           </mat-form-field>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('taraSalida')?.invalid && registerForm.get('taraSalida')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+
+          <mat-error *ngIf="registerForm.get('taraSalida')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--Nro contenedor-->
@@ -231,20 +445,56 @@
             <mat-label>Nro. contenedor</mat-label>
             <input matInput formControlName="nroContenedor" />
           </mat-form-field>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('nroContenedor')?.invalid && registerForm.get('nroContenedor')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+
+          <mat-error *ngIf="registerForm.get('nroContenedor')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
 
         <!--ATAS-->
 
-        <div>
-          <mat-form-field appearance="legacy">
+        <div class="add">
+          <mat-form-field appearance="legacy" *ngIf="ataIF;else ata">
             <mat-label>ATA</mat-label>
             <mat-select formControlName="idATA">
-              <mat-option *ngFor= "let i of listaAtas" [value]="i.id">
+              <mat-option *ngFor="let i of listaAtas" [value]="i.id">
                 {{i.ata}}
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="Example icon button with a home icon" (click)="mostrarAtas()">
+            <mat-icon class="mb-3">add</mat-icon>
+          </button>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('idATA')?.invalid && registerForm.get('idATA')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+        
+        
+          
+        
+          <ng-template #ata [formGroup]="ataForm">
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Ingrese un nueva ATA</mat-label>
+                <input matInput placeholder="ATA" formControlName="ata" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>CUIT</mat-label>
+                <input matInput placeholder="Ingrese CUIT" formControlName="cuit" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <button mat-raised-button (click)="crearAta()" class="mr-3 btn-verde">Crear</button>
+            </div>
+          </ng-template>
+        
         </div>
+        
 
         <!--Permiso embarque-->
         
@@ -253,11 +503,22 @@
             <mat-label>Permiso embarque</mat-label>
             <input matInput formControlName="nroPermisoEmbarque" />
           </mat-form-field>
+          
+          <mat-error class="text-danger" *ngIf="registerForm.get('nroPermisoEmbarque')?.invalid && registerForm.get('nroPermisoEmbarque')?.touched">
+            El <strong>campo</strong> es requerido
+          </mat-error>
+
+          <mat-error *ngIf="registerForm.get('nroPermisoEmbarque')?.hasError('pattern')"><p>*Campo numérico</p></mat-error>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="btn-registrar">
+  <button mat-raised-button (click)="register()" class="mr-3 btn-verde">Crear</button>
+</div>
+
 
 <div class="row">
   <div class="col-md-10">
@@ -297,7 +558,7 @@
   </div>
 </div>
 
-<button mat-raised-button (click)="register()" class="mr-3 btn-verde">Crear</button>
+
 
 
 

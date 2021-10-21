@@ -21,10 +21,30 @@ th.mat-sort-header-sorted {
 
 #lectorBalanza{
     background-color: rgb(0, 0, 0);
+    text-align: justify;
+    border-radius: 0%;
     
 }
 
 #peso{
-    font-size: large;
+    font-size: 70px;
     color: rgb(255, 0, 0);
+    font-weight: 400px;
+}
+
+#requerido{
+    color: blue;
+}
+
+.add{
+    justify-content: baseline;
+}
+
+mat-form-field{
+    width: 180px;
+}
+
+.btn-registrar{
+    margin-top: 5px;
+    margin-left: 80px;
 }
