@@ -12,21 +12,11 @@ const routes: Routes = [
     path: INTERNAL_PATHS.AUTH_DEFAULT,
     loadChildren: () => import('./modulos/auth/auth.module').then((m) => m.AuthModule)
   },
-  /*
   {
     path: INTERNAL_PATHS.PORTERIANESTLE_DEFAULT,
     component: SkeletonComponent,
     loadChildren: () => import('./modulos/porteria/porteria.module').then((m) => m.PorteriaModule)
-  },
-  */
-
-  {path: 'porteria', component: PorteriaComponent},
-  {path: 'porteriaVillaNueva', component: PorteriaVillaNuevaComponent},
-  {path: 'editar/:id', component: PorteriaVillaNuevaComponent },
-  {path: 'ingresoegreso', component: IngresoegresoComponent}
-  
-    
-
+  }
 ];
 
 @NgModule({

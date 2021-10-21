@@ -17,8 +17,11 @@ const routes: Routes = [
   {
     path: INTERNAL_PATHS.PORTERIANESTLE_PORTERIA_VILLA_NUEVA,
     component: PorteriaVillaNuevaComponent
+  },
+  {
+    path: 'editar/:id', 
+    component: PorteriaVillaNuevaComponent
   }
-
 ];
 
 @NgModule({
