@@ -185,9 +185,10 @@ export class PorteriaVillaNuevaComponent implements AfterViewInit, OnInit{
       this.accion = 'Editar';
       this.abmService.getIngreso(this.IdIingreso).subscribe(data => {
         console.log('editable',data)
-        console.log('ingreso', data.ingresoFabricaTB.entrada)
+        console.log('ingreso', data.ingresoFabricaTB.id)
         this.ingresoFabricaTB = data;
         this.registerForm.patchValue({
+          id: data.ingresoFabricaTB.id,
           ingreso: data.ingresoFabricaTB.ingreso,
           salida: data.ingresoFabricaTB.salida,
           idTipoArticulo: data.ingresoFabricaTB.idTipoArticulo,
