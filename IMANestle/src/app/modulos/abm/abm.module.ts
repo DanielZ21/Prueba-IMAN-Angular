@@ -9,6 +9,7 @@ import { TipoArticuloAbmComponent } from './tipo-articulo-abm/tipo-articulo-abm.
 import { ChoferAbmComponent } from './chofer-abm/chofer-abm.component';
 import { DestinoAbmComponent } from './destino-abm/destino-abm.component';
 import { ClienteAbmComponent } from './cliente-abm/cliente-abm.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -23,7 +24,7 @@ import { ClienteAbmComponent } from './cliente-abm/cliente-abm.component';
   imports: [
     CommonModule,
     AbmRoutingModule,
-    MaterialModule,
+    SharedModule,
     ReactiveFormsModule,
     FormsModule
   ],

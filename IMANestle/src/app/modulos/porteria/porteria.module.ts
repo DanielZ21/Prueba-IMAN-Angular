@@ -7,8 +7,8 @@ import { IngresoegresoComponent } from './ingresoegreso/ingresoegreso.component'
 import { PorteriaComponent } from './porteria/porteria.component';
 import { PorteriaVillaNuevaComponent } from './porteria-villa-nueva/porteria-villa-nueva.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/app/shared/material/material.module';
 import { PorteriaEditComponent } from './porteria-edit/porteria-edit.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -23,14 +23,14 @@ import { PorteriaEditComponent } from './porteria-edit/porteria-edit.component';
     CommonModule,
     PorteriaRoutingModule,
     ReactiveFormsModule,
-    MaterialModule,
-    BrowserModule
+    BrowserModule,
+    SharedModule
   ],
   exports: [
     IngresoegresoComponent,
     PorteriaComponent,
-    PorteriaVillaNuevaComponent
-
+    PorteriaVillaNuevaComponent,
+    PorteriaRoutingModule,
   ]
 })
 export class PorteriaModule { }
