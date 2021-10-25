@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: "http//localhost/",
+  apiUrl: "https://192.168.226.3:8085/",
   authRoles: {
     SUPER_ADMIN:['SuperAdmin'],
     ADMIN:['SuperAdmin','Admin'],
